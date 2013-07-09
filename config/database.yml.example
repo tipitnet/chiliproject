@@ -9,8 +9,8 @@ production:
   encoding: utf8
  
 development:
-  adapter: mysql
-  database: chiliproject_development
+  adapter: mysql2
+  database: chiliproject_development_upgrade
   host: localhost
   username: root
   password:
@@ -20,8 +20,8 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql
-  database: chiliproject_test
+  adapter: mysql2
+  database: chiliproject_test_upgrade
   host: localhost
   username: root
   password:
