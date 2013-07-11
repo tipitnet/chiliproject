@@ -9,4 +9,4 @@ require 'rdoc/task'
 
 require 'tasks/rails'
 # Load rake tasks from plugins in chiliproject_plugins
-Dir["#{RAILS_ROOT}/vendor/chiliproject_plugins/*/lib/tasks/**/*.rake"].sort.each { |ext| load ext }
+Dir["#{RAILS_ROOT}/vendor/plugins/*/lib/tasks/**/*.rake"].sort.each { |ext| load ext }
