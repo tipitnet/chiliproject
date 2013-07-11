@@ -1,0 +1,8 @@
+<div id="issue_details">
+	<span>WHEN REPLYING, DO NOT ADD TEXT BELOW THIS LINE.</span><br/>
+
+<h1><%=h @message.board.project.name %> - <%=h @message.board.name %>: <%= link_to(h(@message.subject), @message_url) %></h1>
+<em><%=h @message.author %></em>
+
+<%= textilizable(@message, :content, :only_path => false) %>
+</div>

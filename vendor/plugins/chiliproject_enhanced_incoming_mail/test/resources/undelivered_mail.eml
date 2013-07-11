@@ -1,0 +1,133 @@
+Delivered-To: tipit@nicopaez.com.ar
+Received: by 10.70.55.40 with SMTP id o8csp73848pdp;
+        Thu, 23 May 2013 06:57:17 -0700 (PDT)
+X-Received: by 10.68.212.72 with SMTP id ni8mr12856623pbc.114.1369317434790;
+        Thu, 23 May 2013 06:57:14 -0700 (PDT)
+DomainKey-Status: bad format
+Received-SPF: softfail (google.com: best guess record for domain of transitioning unknown does not designate <unknown> as permitted sender)
+Received: by 10.70.21.170 with POP3 id w10mf437050pde.34;
+        Thu, 23 May 2013 06:57:14 -0700 (PDT)
+X-Gmail-Fetch-Info: nicopaez@tipit.net 1 zmail.tipit.net 110 nicopaez@tipit.net
+Received: from zmail.tipit.net (LHLO zmail.tipit.net) (207.150.201.14) by
+ zmail.tipit.net with LMTP; Thu, 23 May 2013 08:54:24 -0500 (CDT)
+Received: by zmail.tipit.net (Postfix)
+	id 7D545C4228B; Thu, 23 May 2013 08:54:24 -0500 (CDT)
+Date: Thu, 23 May 2013 08:54:24 -0500 (CDT)
+From: MAILER-DAEMON@zmail.tipit.net (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: nicopaez@tipit.net
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="1A3FBC42066.1369317264/zmail.tipit.net"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20130523135424.7D545C4228B@zmail.tipit.net>
+
+This is a MIME-encapsulated message.
+
+--1A3FBC42066.1369317264/zmail.tipit.net
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host zmail.tipit.net.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<nobody@tipit.net>: tipit.net
+
+--1A3FBC42066.1369317264/zmail.tipit.net
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; zmail.tipit.net
+X-Postfix-Queue-ID: 1A3FBC42066
+X-Postfix-Sender: rfc822; nicopaez@tipit.net
+Arrival-Date: Thu, 23 May 2013 08:54:24 -0500 (CDT)
+
+Final-Recipient: rfc822; nobody@tipit.net
+Original-Recipient: rfc822;nobody@tipit.net
+Action: failed
+Status: 5.0.0
+Diagnostic-Code: X-Postfix; tipit.net
+
+--1A3FBC42066.1369317264/zmail.tipit.net
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+Content-Transfer-Encoding: 7bit
+
+Return-Path: <nicopaez@tipit.net>
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by zmail.tipit.net (Postfix) with ESMTP id 1A3FBC42066
+	for <nobody@tipit.net>; Thu, 23 May 2013 08:54:24 -0500 (CDT)
+X-Spam-Flag: NO
+X-Spam-Score: 1.28
+X-Spam-Level: *
+X-Spam-Status: No, score=1.28 tagged_above=-10 required=6.6
+	tests=[ALL_TRUSTED=-1, BAYES_00=-1.9, HTML_MESSAGE=0.001,
+	RCVD_IN_PBL=3.335, RDNS_NONE=0.793, TVD_SPACE_RATIO=0.001,
+	T_BIG_HEADERS_2K=0.01, T_FM_FORGED_GMAIL=0.01, T_HELO_NO_DOMAIN=0.01,
+	T_LONG_HEADER_LINE_80=0.01, T_NOT_A_PERSON=-0.01,
+	T_PUBLISHED_DNSBLS=0.01, T_PUBLISHED_DNSBLS_BRBL=0.01] autolearn=no
+Received: from zmail.tipit.net ([127.0.0.1])
+	by localhost (zmail.tipit.net [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id M6RW50kOR_AL for <nobody@tipit.net>;
+	Thu, 23 May 2013 08:54:19 -0500 (CDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by zmail.tipit.net (Postfix) with ESMTP id 7BFA1C4228A
+	for <nobody@tipit.net>; Thu, 23 May 2013 08:54:19 -0500 (CDT)
+X-Virus-Scanned: amavisd-new at zmail.tipit.net
+Received: from zmail.tipit.net ([127.0.0.1])
+	by localhost (zmail.tipit.net [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id ISnG-Hng-5Cg for <nobody@tipit.net>;
+	Thu, 23 May 2013 08:54:19 -0500 (CDT)
+Received: from mail-pd0-f180.google.com (mail-pd0-f180.google.com [209.85.192.180])
+	by zmail.tipit.net (Postfix) with ESMTPSA id 26B05C42066
+	for <nobody@tipit.net>; Thu, 23 May 2013 08:54:19 -0500 (CDT)
+Received: by mail-pd0-f180.google.com with SMTP id 14so495430pdc.25
+        for <nobody@tipit.net>; Thu, 23 May 2013 06:54:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:x-originating-ip:date:message-id:subject:from:to
+         :content-type:x-gm-message-state;
+        bh=csFzxpsb7hFsum1W6paYk65GLM7ZKt9R67AnkZY2BX8=;
+        b=SkiRKuVET1YMwuTkODNZfKp8HewVa++XMm7sjiIc+Pza1JVaAwWD8hxhHMdEMrTHaf
+         FBLBJJ9CrfDe1JSnHscrhT/eOw7/ZrBNtMJl1LX4FKJtV9EJEhQ2xs6h1l0ORsOSEqDV
+         3B4Bzu4yUw6FN17MTXezF9XIGxS2ovFL2FnH46LxAu/UMh4Qc//k9P6YjAo/wthV+AUb
+         d9uQ+5Ubs7WbLTo0A+N4PqqzyQ+3l6Si67jCWkh48EtZ1GMpUnAAbcB+40knPc/QV9E0
+         2Iruyla+/TfEuMhELY2u0HKj27yXIbaOnfjRgmi3oIu9NCaxXfcb0J91/6QnSH+xvutW
+         cdTw==
+MIME-Version: 1.0
+X-Received: by 10.66.197.136 with SMTP id iu8mr13805962pac.0.1369317258061;
+ Thu, 23 May 2013 06:54:18 -0700 (PDT)
+Received: by 10.70.55.40 with HTTP; Thu, 23 May 2013 06:54:18 -0700 (PDT)
+X-Originating-IP: [181.95.90.219]
+Date: Thu, 23 May 2013 10:54:18 -0300
+Message-ID: <CADwxdu-w6OWkXh6ZbUZv4bBaibKs6GG7veJtTo7zLT7_2wk2Rw@mail.gmail.com>
+Subject: Should bounce
+From: "Nicolas Paez (tipit)" <nicopaez@tipit.net>
+To: nobody@tipit.net
+Content-Type: multipart/alternative; boundary=047d7bf1860ec081f904dd630472
+X-Gm-Message-State: ALoCoQmVo7Zga+ZQkskTE1b+N7FR8WFekHe1VCLiG25QORg0+2nIiogXYjzMWEOldPc0bVnI1OXT
+
+--047d7bf1860ec081f904dd630472
+Content-Type: text/plain; charset=ISO-8859-1
+
+Regards,
+Nico
+
+--047d7bf1860ec081f904dd630472
+Content-Type: text/html; charset=ISO-8859-1
+
+<div dir="ltr">Regards,<div style>Nico</div></div>
+
+--047d7bf1860ec081f904dd630472--
+
+--1A3FBC42066.1369317264/zmail.tipit.net--
