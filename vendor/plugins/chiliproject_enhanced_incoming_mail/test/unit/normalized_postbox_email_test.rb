@@ -23,7 +23,7 @@ class NormalizedPostboxEmailTest < Test::Unit::TestCase
 		assert_match /\*This is bolded\*/, replaced_html_body
 		assert_match /\+And finally, this is underlined\+/, replaced_html_body
 	end
-
+=begin
 	def test_embed_image
 		raw_email = get_mail_sample :postbox_embedded_image
 		email = Mail.new(raw_email.to_s)
@@ -50,7 +50,7 @@ class NormalizedPostboxEmailTest < Test::Unit::TestCase
     assert_no_match /Content-Disposition: inline/i, replaced_email
     assert_match /Content-Disposition: attachment/i, replaced_email
   end
-
+=end
 
 	def test_remove_reply_thread
 		raw_email = get_mail_sample :postbox_reply
@@ -63,7 +63,7 @@ class NormalizedPostboxEmailTest < Test::Unit::TestCase
 		assert_match /This is the REPLY text and must be included in the comment./m, replaced_email
 		assert_no_match /<p>This is the ORIGINAL email, to <br>be removed from the reply<\/p>/, replaced_email
 	end
-
+=begin
 	def test_remove_unreferenced_inline_image
 		raw_email = get_mail_sample :postbox_reply
 		email = Mail.new(raw_email.to_s)
@@ -86,7 +86,7 @@ class NormalizedPostboxEmailTest < Test::Unit::TestCase
 		assert_match /Content-ID: <part1\.04090307.00030702@someplace\.com>/, replaced_email
 		assert_no_match /Content-ID: <part2\.01090403.07030800@someplace\.com>/, replaced_email
 	end
-
+=end
   def test_dont_additional_spaces
     raw_email = get_mail_sample :postbox_spacing
     email = Mail.new(raw_email.to_s)

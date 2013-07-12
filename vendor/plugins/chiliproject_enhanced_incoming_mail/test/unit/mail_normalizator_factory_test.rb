@@ -1,30 +1,28 @@
-require File.expand_path('../../test_helper', __FILE__)
+require File.dirname(__FILE__) + '../../test_helper'
+
 
 class MailNormalizatorFactoryTest < Test::Unit::TestCase
 	include Helper
 
-  context "create_mail_normalized" do
-  	should " create_normalized_mac_mail" do
-	  	raw_email = get_mail_sample :macmail_reply
+	def test_create_normalized_mac_mail
+		raw_email = get_mail_sample :macmail_reply
 
-		  normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
+		normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
 
-		  assert_not_nil normalizator
-		  assert normalizator.class.name == "EnhancedIncomingMail::NormalizedMacMailEmail"
-	  end
+		assert_not_nil normalizator
+		assert normalizator.class.name == "EnhancedIncomingMail::NormalizedMacMailEmail"
+	end
 
-    should 'create_normalized_outlook' do
-		  raw_email = get_mail_sample :outlook_reply
+	def test_create_normalized_outlook
+		raw_email = get_mail_sample :outlook_reply
 
-		  normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
+		normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
 
-		  assert_not_nil normalizator
-		  assert normalizator.class.name == "EnhancedIncomingMail::NormalizedOutlookEmail"
-	  end
-  end
+		assert_not_nil normalizator
+		assert normalizator.class.name == "EnhancedIncomingMail::NormalizedOutlookEmail"
+	end
 
-=begin
-	def test_create_normalized_gmail
+	def test_create_normalized_gmail_2
 		raw_email = get_mail_sample :gmail_reply
 
 		normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
@@ -60,5 +58,5 @@ class MailNormalizatorFactoryTest < Test::Unit::TestCase
     assert_not_nil normalizator
     assert normalizator.class.name == "EnhancedIncomingMail::NormalizedZimbraEmail"
   end
-=end
+
 end

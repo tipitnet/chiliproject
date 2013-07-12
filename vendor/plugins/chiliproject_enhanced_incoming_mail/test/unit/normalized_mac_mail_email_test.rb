@@ -14,6 +14,7 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 		assert_match "This is *bold* text", normalized_email.email
 	end
 
+=begin
 	def test_replace_italic_tags
 		raw_email = get_mail_sample :macmail_replace_italic_tags
 		email = Mail.new(raw_email.to_s)
@@ -43,7 +44,7 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 
 		assert_match "This is ??quoted?? text", normalized_email.email
 	end
-=begin
+
 	def test_replace_unordered_list_tags
 		email = "This is a <ul><li>First Item</li><li>Second Item</li></ul> text"
 
@@ -52,6 +53,7 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 		assert_equal "This is a * First Item\n* Second Item text", email
 	end
 =end
+=begin
 	def test_replace_paragraph_tags
 		raw_email = get_mail_sample :macmail_replace_paragraph_tags
 		email = Mail.new(raw_email.to_s)
@@ -189,7 +191,7 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 		assert_no_match /Content-Disposition: inline/i, replaced_email
 		assert_match /Content-Disposition: attachment/i, replaced_email
 	end
-
+=begin
 # TMail only processes attachments if they aren't nested in other parts  
 	def test_move_all_attachment_parts_to_root
 		raw_email = get_mail_sample :macmail_multiple_inline_images
@@ -213,8 +215,7 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 	end
 
 
-=begin
-  Test borken after chili 3.7 upgrade
+  #Test borken after chili 3.7 upgrade
 	def test_remove_plain_text
   		raw_email = get_mail_sample :macmail_simple_email
 	  	email = Mail.new(raw_email.to_s)
@@ -225,7 +226,6 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 		  replaced_email = normalized_email.email
 		  assert_no_match /text\/plain/, replaced_email
 	end
-=end
 
 	def test_keep_all_other_parts_on_remove_plain_text
 		raw_email = get_mail_sample :macmail_embedded_image
@@ -250,7 +250,6 @@ class NormalizedMacMailEmailTest < Test::Unit::TestCase
 	# 	assert_no_match /R(=\r\n)?E(=\r\n)?M(=\r\n)?O(=\r\n)?V(=\r\n)?E(=\r\n)?D/m, replaced_email
 	# end
 
-=begin
 	def test_remove_outlook_plain_text
 		raw_email = get_mail_sample :outlook_simple_email
 
