@@ -1,0 +1,64 @@
+= Tipit Extensions
+
+This plugin contains several features that extend or modify Chili native features. All the features included here are relatively small, that is why the they are all in the same plugin.
+This plugin depends on 3 custom fields:
+* on Project >> Wiki Template (text)
+* on Project >> Default Watchers (long text)
+* on User >> Default Project (text)
+
+Below is the description of the features included in this plugin.
+
+Issue extensions (IssuePatch module)
+ * add_asignee_as_watcher: when you assign an issue to user, that user is automatically added as watcher.
+ * add_updater_as_watcher: when a user updates an issue, he is automatically added as watcher.
+ * default_watchers: it allows to define default watchers on a per project basics. It relays on a Project Custom field called 'Default watchers' that should be created manually before enabling the extension.
+ * set_start_date: the start date is set not when the issue is created but when it leaves 'New' status
+ This extension includes the following files:
+   lib/tipit_extensions/issue_patch.rb
+   app/views/issues/_form.rhtml
+
+Mail Handler extensions (MailHandlerPatch module)
+ * received_mail_logger: improved and exclusive logger for incomming mails
+ * reject_mails_with_cc: in order to force discussion to happen on Chili, any mail sent to chili with CC recipients are rejected
+ * handle_default_project: depends on a user custom field called 'Default project'. It process every incoming email and in case the target project can not be determined, this extension routes the mail to the user default project
+ This extension includes the following files:
+   lib/tipit_extensions/mail_handler_patch.rb
+   lib/tipit_extensions/mailer_patch.rb
+   lib/tipit_extensions/bounced_delivery.rb
+   app/views/mailer/issue_reject.text.html.rhtml
+   app/views/mailer/issue_reject.text.plain.rhtml
+
+User extensions (UserPath module)
+ * secondary_email: it is possible to define a secondary mail to each user, so the user can send issues updated using this address
+ This extension includes the following files:
+   app/views/users/_form.rhtml
+   app/views/my/account.rhtml
+   lib/tipit_extensions/user_patch.rb
+   db/migrate/20121130142501_add_secondary_mail_to_user.rb
+
+Watchers extensions (WatchersControllerPatch module)
+ * unwatch: if a user removes himself from watching an issue, the system will not add him again as watcher
+ This extension includes the following files:
+   lib/tipit_extensions/watchers_controller_patch.rb
+   app/views/mailer/issue_reject.text.plain.rhtml
+   app/models/nowatcher.rb
+   db/migrate/20121017142501_create_nowatchers.rb
+
+
+Wiki extensions (WikiControllerPatch module)
+ * wiki template: it allows to define a template for wiki pages for each project. It depends on a custom field called 'Wiki template', this field must be added manually before enabling the plugin.
+ * parent page: it sets the parent page of the new wiki pages.
+ This extension includes the following files:
+   app/views/wiki/edit.rhtml
+   lib/wiki_controller_patch.rb
+
+Release Info Extension (ReleasesController)
+ This extension was developed to have full tracebility of the Chili. It shows in the footer the current version of the application by taking the version from a file.
+ The version is linked to a Chili version entity so the user can click a in the footer of the page and see the issues associated to the current version.
+ This extension includes the following files:
+   app/controllers/releases_controller.rb
+   app/views/layouts/base.rhtml
+   lib/tipit_extensions/info.rb
+   lib/tipit_extensions/current_release.txt
+
+

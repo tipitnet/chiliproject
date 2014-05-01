@@ -32,3 +32,4 @@ doc/app
 /*.iml
 /.idea
 .rbx
+.DS_Store

@@ -28,6 +28,7 @@ branches:
     - unstable
     - master
     - stable
+    - tipit_extensions
     - /^stable-.*$/
     - /^release-.*$/
 notifications:
