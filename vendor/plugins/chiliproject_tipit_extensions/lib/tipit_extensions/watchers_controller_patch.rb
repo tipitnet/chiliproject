@@ -3,7 +3,7 @@ require_dependency 'watchers_controller'
 module TipitExtensions
 
   module WatchersControllerPatch
-
+=begin
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
 
@@ -22,7 +22,7 @@ module TipitExtensions
 
       def unwatch_with_tipit_patch
         unwatch_without_tipit_patch
-        nowatcher = Nowatcher.all(:conditions => "user_id=#{User.current.id} and watchable_id=#{@watched.id} and watchable_type='#{@watched.type.to_s}'").first
+        nowatcher = Nowatcher.all(:conditions => "user_id=#{User.current.id} and watchable_id=#{@watched.id} and watchable_type='#{@watched.class}'").first
         if nowatcher.nil?
           nowatcher = Nowatcher.new
           nowatcher.user_id = User.current.id
@@ -34,6 +34,7 @@ module TipitExtensions
 
 
     end
+=end    
   end
 
 end
