@@ -69,7 +69,7 @@ module TipitExtensions
         return if self.current_journal.nil?
         is_already_watching = self.watched_by?(self.current_journal.user)
         if(!is_already_watching)
-          nowatcher = Nowatcher.all(:conditions => "user_id=#{User.current.id} and watchable_id=#{self.id} and watchable_type='#{self.type.to_s}'").first
+          nowatcher = Nowatcher.all(:conditions => "user_id=#{User.current.id} and watchable_id=#{self.id} and watchable_type='#{self.class}'").first
           if(nowatcher.nil?)
             self.set_watcher(self.current_journal.user, true)
           end
