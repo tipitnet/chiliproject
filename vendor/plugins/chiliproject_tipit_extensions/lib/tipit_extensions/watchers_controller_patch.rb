@@ -3,7 +3,7 @@ require_dependency 'watchers_controller'
 module TipitExtensions
 
   module WatchersControllerPatch
-=begin
+
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
 
@@ -34,7 +34,7 @@ module TipitExtensions
 
 
     end
-=end    
+    
   end
 
 end

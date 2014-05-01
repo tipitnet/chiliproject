@@ -3,7 +3,7 @@ require_dependency 'mail_handler'
 module TipitExtensions
 
   module MailHandlerPatch
-=begin
+
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
 
@@ -172,8 +172,7 @@ module TipitExtensions
       end
 
     end
-=end    
-  end
 
+  end
 
 end

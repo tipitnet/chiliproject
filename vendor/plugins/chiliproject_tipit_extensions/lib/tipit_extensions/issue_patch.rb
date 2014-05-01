@@ -3,7 +3,7 @@ require_dependency 'issue'
 module TipitExtensions
 
   module IssuePatch
-=begin
+
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
 
@@ -109,7 +109,7 @@ module TipitExtensions
       end
 
     end
-=end    
+
   end
 
 end
