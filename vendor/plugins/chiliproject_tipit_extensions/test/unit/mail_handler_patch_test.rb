@@ -3,7 +3,6 @@ require File.expand_path('../../test_helper', __FILE__)
 module TipitExtensions
 
   module MailHandlerPatch
-
     class MailHandlerPatchTest < ActiveSupport::TestCase
       include TipitExtensionHelper
 
@@ -34,6 +33,6 @@ module TipitExtensions
         email = get_mail_sample :bounced_issue
         MailHandler.receive(email)
       end
-    end
+    end    
   end
 end

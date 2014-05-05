@@ -38,7 +38,7 @@ module TipitExtensions
       end
 
       def get_email_client_type(email)
-        EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
+        'generic' #EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
       end
 
       def receive_with_tipit_patch(email)
