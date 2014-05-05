@@ -3,14 +3,8 @@ rvm:
   - 1.9.3
 env:
   - "TEST_SUITE=units       RAILS_ENV=test DB=mysql2 BUNDLE_WITHOUT=rmagick:postgres:sqlite"
-  - "TEST_SUITE=units       RAILS_ENV=test DB=postgres BUNDLE_WITHOUT=rmagick:mysql2:sqlite"
-  - "TEST_SUITE=units       RAILS_ENV=test DB=sqlite BUNDLE_WITHOUT=rmagick:mysql2:postgres"
   - "TEST_SUITE=functionals RAILS_ENV=test DB=mysql2 BUNDLE_WITHOUT=rmagick:postgres:sqlite"
-  - "TEST_SUITE=functionals RAILS_ENV=test DB=postgres BUNDLE_WITHOUT=rmagick:mysql2:sqlite"
-  - "TEST_SUITE=functionals RAILS_ENV=test DB=sqlite BUNDLE_WITHOUT=rmagick:mysql2:postgres"
   - "TEST_SUITE=integration RAILS_ENV=test DB=mysql2 BUNDLE_WITHOUT=rmagick:postgres:sqlite"
-  - "TEST_SUITE=integration RAILS_ENV=test DB=postgres BUNDLE_WITHOUT=rmagick:mysql2:sqlite"
-  - "TEST_SUITE=integration RAILS_ENV=test DB=sqlite BUNDLE_WITHOUT=rmagick:mysql2:postgres"
 before_install:
   - "sudo apt-get update -qq"
   - "sudo apt-get --no-install-recommends install bzr cvs git mercurial subversion"
