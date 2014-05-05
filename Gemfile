@@ -62,14 +62,6 @@ platforms :mri, :mingw, :rbx do
     gem "mysql2", "~> 0.2.7"
   end
 
-  group :postgres do
-    gem "pg"
-    #   gem "postgres-pr"
-  end
-
-  group :sqlite do
-    gem "sqlite3"
-  end
 end
 
 platforms :jruby do
@@ -77,14 +69,6 @@ platforms :jruby do
 
   group :mysql do
     gem "activerecord-jdbcmysql-adapter"
-  end
-
-  group :postgres do
-    gem "activerecord-jdbcpostgresql-adapter"
-  end
-
-  group :sqlite do
-    gem "activerecord-jdbcsqlite3-adapter"
   end
 end
 
