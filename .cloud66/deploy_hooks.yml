@@ -1,6 +1,0 @@
-production: 
-  last_thing: 
-    apply_during: build_only
-    command: /.cloud66/setup.sh
-    run_on: single_server
-    target: rails
