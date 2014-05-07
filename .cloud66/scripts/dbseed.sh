@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 cd $STACK_PATH
 sudo touch /tmp/hook_start
-bundle exec rake redmine:load_default_data > load_default_data_output.txt
+bundle exec rake redmine:load_default_data
 bundle exec rake generate_session_store
 sudo touch /tmp/hook_end
