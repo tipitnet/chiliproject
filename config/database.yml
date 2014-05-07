@@ -1,11 +1,10 @@
 production:
   adapter: mysql2
-  database: chiliproject
-  host: localhost
-  username: root
-  password:
-  encoding: utf8
- 
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  host: <%= ENV['MYSQL_ADDRESS'] %>
+
 development:
   adapter: mysql2
   database: chiliproject_development
