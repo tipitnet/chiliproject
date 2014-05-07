@@ -1,0 +1,5 @@
+last_thing:
+  - command: cd $STACK_PATH && bundle exec rake generate_session_store
+    target: rails
+    run_on: single_server
+    apply_during: build_only
