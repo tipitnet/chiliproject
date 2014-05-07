@@ -1,6 +1,6 @@
 production: 
   last_thing: 
     apply_during: build_only
-    command: "cd $STACK_PATH && bundle exec rake generate_session_store"
+    command: cd $STACK_PATH && bundle exec rake generate_session_store
     run_on: single_server
     target: rails
