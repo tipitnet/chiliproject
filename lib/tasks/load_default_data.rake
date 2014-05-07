@@ -42,7 +42,7 @@ namespace :redmine do
     rescue Redmine::DefaultData::DataAlreadyLoaded => error
       puts error
     rescue => error
-      puts "Error: " + error
+      puts "Error: #{error}"
       puts "Default configuration data was not loaded."
     end
   end
