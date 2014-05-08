@@ -1,9 +1,18 @@
 production:
+  first_thing:
+    - source: /.cloud66/scripts/install_dependencies.sh
+      destination: /tmp/install_dependencies.sh
+      target: rails
+      execute: true
+      run_on: single_server
+      apply_during: build_only
+
   after_symlink:
     - command: cd $STACK_PATH && bundle exec rake generate_session_store
       target: rails
       run_on: single_server
       apply_during: build_only 
+
   last_thing:
     - command: cd $STACK_PATH && bundle exec rake redmine:load_default_data
       target: rails
