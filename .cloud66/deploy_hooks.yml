@@ -11,7 +11,7 @@ production:
     - command: cd $STACK_PATH && bundle exec rake generate_session_store
       target: rails
       run_on: single_server
-      apply_during: build_only 
+      apply_during: all 
 
   last_thing:
     - source: /.cloud66/scripts/configure_system.sh
