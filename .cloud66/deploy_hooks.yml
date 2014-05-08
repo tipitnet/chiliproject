@@ -5,9 +5,7 @@ production:
       run_on: single_server
       apply_during: build_only 
   last_thing:
-    - source: /.cloud66/scripts/dbseed.sh
-      destination: /tmp/dbseed.sh
+    - command: cd $STACK_PATH && bundle exec rake redmine:load_default_data
       target: rails
-      execute: true
       run_on: single_server
-      apply_during: build_only
+      apply_during: build_only 
