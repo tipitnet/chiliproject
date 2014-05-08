@@ -1,5 +1,5 @@
 production:
-  after_rails:
+  last_thing:
     - source: /.cloud66/scripts/dbseed.sh
       destination: /tmp/dbseed.sh
       target: rails
