@@ -14,7 +14,9 @@ production:
       apply_during: build_only 
 
   last_thing:
-    - command: cd $STACK_PATH && bundle exec rake redmine:load_default_data
+    - source: /.cloud66/scripts/configure_system.sh
+      destination: /tmp/configure_system.sh
       target: rails
+      execute: true
       run_on: single_server
-      apply_during: build_only 
+      apply_during: build_only
