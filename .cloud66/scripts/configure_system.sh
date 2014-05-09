@@ -13,5 +13,5 @@ sudo chmod -R 755 files log tmp public/plugin_assets
 
 # configure posfix
 alias=`cat $STACK_PATH/.cloud66/scripts/incoming_mail_configuration.txt`
-eval echo "$alias" >> /etc/alias
+eval echo "$alias" >> /etc/aliases
 newaliases
