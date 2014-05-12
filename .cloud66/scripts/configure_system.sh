@@ -17,7 +17,7 @@ export INCOMING_EMAIL_ADDRESS=chiliproject@${SERVER_NAME}.${BOX_NAME}.c66.me
 export SERVER_URL=http://${SERVER_NAME}.${BOX_NAME}.c66.me
 
 alias=`cat $STACK_PATH/.cloud66/resources/aliases`
-echo "$alias" > /etc/aliases
+eval echo "$alias" > /etc/aliases
 newaliases
 
 sudo useradd -m -s /bin/bash chiliproject
