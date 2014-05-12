@@ -35,8 +35,8 @@ default:
   # You most probably want to configure this for your environment.
   # See https://www.chiliproject.org/projects/chiliproject/wiki/Email_Delivery
   #
-  # email_delivery:
-  #   delivery_method: :smtp
+  email_delivery:
+    delivery_method: :smtp
   #   smtp_settings:
   #     address: smtp.example.net
   #     port: 25
