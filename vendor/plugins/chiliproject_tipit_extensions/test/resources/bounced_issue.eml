@@ -1,0 +1,218 @@
+eturn-Path: <>
+Received: by chilidev id 93B013060EF4; Fri, 24 May 2013 08:08:52 -0500
+Date: Fri, 24 May 2013 08:08:52 -0500
+From: MAILER-DAEMON@staging.chili.tipit.net (Mail Delivery System)
+To: chiliproject@staging.chili.tipit.net
+Message-Id: <20130524130852.93B013060EF4@chilidev>
+Subject: Undelivered Mail Returned to Sender
+Mime-Version: 1.0
+Content-Type: multipart/report; charset=UTF-8; report-type=delivery-status; boundary=mimepart_519f66653ca8_72f53ffee6d629bc2c3
+Content-Transfer-Encoding: 7bit
+Delivered-To: chiliproject@staging.chili.tipit.net
+X-Original-To: chiliproject@staging.chili.tipit.net
+Auto-Submitted: auto-replied
+
+This is a MIME-encapsulated message.
+
+
+--mimepart_519f66653ca8_72f53ffee6d629bc2c3
+Date: Fri, 24 May 2013 08:08:52 -0500
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Content-Description: Notification
+Content-Id: <519f6664e2ba6_72f53ffee6d629bc68788@chilidev.mail>
+
+This is the mail system at host chilidev.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<nobody@tipit.net>: host zmail.tipit.net[207.150.201.14] said: 550 5.1.1
+    <nobody@tipit.net>: Recipient address rejected: tipit.net (in reply to RCPT
+    TO command)
+
+
+--mimepart_519f66653ca8_72f53ffee6d629bc2c3
+Date: Fri, 24 May 2013 08:08:52 -0500
+Mime-Version: 1.0
+Content-Type: message/delivery-status; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment
+Content-Description: Delivery report
+Content-Id: <519f6664e32c6_72f53ffee6d629bc6887c@chilidev.mail>
+
+Reporting-MTA: dns; chilidev
+X-Postfix-Queue-ID: 53BD93060EF2
+X-Postfix-Sender: rfc822; chiliproject@staging.chili.tipit.net
+Arrival-Date: Fri, 24 May 2013 08:08:52 -0500 (CDT)
+
+Final-Recipient: rfc822; nobody@tipit.net
+Original-Recipient: rfc822;nobody@tipit.net
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; zmail.tipit.net
+Diagnostic-Code: smtp; 550 5.1.1 <nobody@tipit.net>: Recipient address
+    rejected: tipit.net
+
+
+--mimepart_519f66653ca8_72f53ffee6d629bc2c3
+Date: Fri, 24 May 2013 08:08:52 -0500
+Mime-Version: 1.0
+Content-Type: message/rfc822; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment
+Content-Description: Undelivered Message
+Content-Id: <519f6664e395d_72f53ffee6d629bc6898f@chilidev.mail>
+
+Return-Path: <chiliproject@staging.chili.tipit.net>
+Received: from chili.origindigital.com (localhost [127.0.0.1])
+	by chilidev (Postfix) with ESMTP id 53BD93060EF2
+	for <nobody@tipit.net>; Fri, 24 May 2013 08:08:52 -0500 (CDT)
+Date: Fri, 24 May 2013 08:08:52 -0500
+From: chiliproject@staging.chili.tipit.net
+Message-Id: <chiliproject.issue_journal-17332.20130524080851@staging.chili.tipit.net>
+References: <chiliproject.issue-1873.20130523113028@staging.chili.tipit.net>
+Subject: [Chili Dev - Task #1873] test bounce logic
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary=mimepart_519f66645361e_72663ffee6d629bc286f
+X-Mailer: ChiliProject
+X-Chiliproject-Type: Issue
+X-Chiliproject-Site: Tipit - Staging
+Precedence: bulk
+X-Chiliproject-Project: chili-dev
+X-Chiliproject-Issue-Author: nicopaez
+X-Chiliproject-Issue-Id: 1873
+Auto-Submitted: auto-generated
+X-Chiliproject-Host: staging.chili.tipit.net
+
+
+--mimepart_519f66645361e_72663ffee6d629bc286f
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: Quoted-printable
+Content-Disposition: inline
+
+
+
+---------- WHEN REPLYING, DO NOT ADD TEXT BELOW THIS LINE. ----------
+Issue #1873 has been updated by Nicolas Paez.
+
+
+
+update 5
+----------------------------------------
+Task #1873: test bounce logic
+http://staging.chili.tipit.net/issues/1873
+
+Author: Nicolas Paez
+Status: New
+Priority: Normal
+Assignee: =
+
+Category: =
+
+Target version: =
+
+Sub Status: None
+
+
+
+
+
+
+--
+You have received this notification because you have either subscribed to=
+ it, or are involved in it.
+To change your notification preferences, please click here: http://chili.=
+tipit.net
+
+--mimepart_519f66645361e_72663ffee6d629bc286f
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: Quoted-printable
+Content-Disposition: inline
+
+<html>
+<head>
+<style>
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
+  color:#484848;
+}
+h1, h2, h3 { font-family: "Trebuchet MS", Verdana, sans-serif; margin: 0p=
+x; }
+h1 { font-size: 1.2em; }
+h2, h3 { font-size: 1.1em; }
+a, a:link, a:visited { color: #2A5685;}
+a:hover, a:active { color: #c61a1a; }
+a.wiki-anchor { display: none; }
+hr {
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  border: 0;
+}
+blockquote {
+  border-left: 3px solid #E0E0E0;
+  font-style: italic;
+  margin-left: 2.4em;
+  padding-left: 0.6em;
+}
+.footer {
+  font-size: 0.8em;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<span class=3D"header"></span>
+
+<div id=3D"issue_details">
+	<span>WHEN REPLYING, DO NOT ADD TEXT BELOW THIS LINE.</span><br/>
+	Issue #1873 has been updated by Nicolas Paez.
+
+	<ul>
+	=
+
+	</ul>
+
+	<p>update 5</p>
+	<hr />
+	<h1><a href=3D"http://staging.chili.tipit.net/issues/1873">Task #1873: t=
+est bounce logic</a></h1>
+
+<ul>
+<li>Author: Nicolas Paez</li>
+<li>Status: New</li>
+<li>Priority: Normal</li>
+<li>Assignee: </li>
+<li>Category: </li>
+<li>Target version: </li>
+
+  <li>Sub Status: None</li>
+
+</ul>
+
+
+
+</div>
+
+<hr />
+<span class=3D"footer"><p>You have received this notification because you=
+ have either subscribed to it, or are involved in it.<br />To change your=
+ notification preferences, please click here: <a class=3D"external" href=3D=
+"http://chili.tipit.net">http://chili.tipit.net</a></p></span>
+</body>
+</html>
+
+--mimepart_519f66645361e_72663ffee6d629bc286f--
+
+
+--mimepart_519f66653ca8_72f53ffee6d629bc2c3--
