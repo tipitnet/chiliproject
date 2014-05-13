@@ -10,7 +10,11 @@ cd $STACK_PATH
 mkdir -p tmp public/plugin_assets
 sudo chown -R nginx:app_writers files log tmp public/plugin_assets
 sudo chmod -R 755 files log tmp public/plugin_assets
-sudo chmod a+x extra/mail_handler/rdm-mailhandler.rb
+
+cd /etc/postfix
+sudo mkdir chili-handler
+cp $STACK_PATH/extra/mail_handler/* /etc/postfix/chili-handler 
+sudo chmod a+x /etc/postfix/chili-handler/rdm-mailhandler.rb
 
 # configure posfix
 export INCOMING_EMAIL_ADDRESS=chiliproject@${SERVER_NAME}.${BOX_NAME}.c66.me
