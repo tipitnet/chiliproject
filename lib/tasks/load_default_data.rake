@@ -21,7 +21,6 @@ namespace :redmine do
 
     envlang = ENV['CHILIPROJECT_LANG'] || ENV['REDMINE_LANG']
     if !envlang || !set_language_if_valid(envlang)
-      puts
       while true
         print "Select language: "
         print valid_languages.collect(&:to_s).sort.join(", ")
@@ -36,14 +35,8 @@ namespace :redmine do
       puts "===================================="
     end
 
-    begin
-      Redmine::DefaultData::Loader.load(current_language)
-      puts "Default configuration data loaded."
-    rescue Redmine::DefaultData::DataAlreadyLoaded => error
-      puts error
-    rescue => error
-      puts "Error: " + error
-      puts "Default configuration data was not loaded."
-    end
+    Redmine::DefaultData::Loader.load(current_language)
+    puts "Default configuration data loaded."
+
   end
 end

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 source "https://rubygems.org"
 
+ruby '1.9.3'
+
 gem "rails", "2.3.18"
 
 gem "json", "~> 1.7.7"
@@ -62,14 +64,6 @@ platforms :mri, :mingw, :rbx do
     gem "mysql2", "~> 0.2.7"
   end
 
-  group :postgres do
-    gem "pg"
-    #   gem "postgres-pr"
-  end
-
-  group :sqlite do
-    gem "sqlite3"
-  end
 end
 
 platforms :jruby do
@@ -77,14 +71,6 @@ platforms :jruby do
 
   group :mysql do
     gem "activerecord-jdbcmysql-adapter"
-  end
-
-  group :postgres do
-    gem "activerecord-jdbcpostgresql-adapter"
-  end
-
-  group :sqlite do
-    gem "activerecord-jdbcsqlite3-adapter"
   end
 end
 
