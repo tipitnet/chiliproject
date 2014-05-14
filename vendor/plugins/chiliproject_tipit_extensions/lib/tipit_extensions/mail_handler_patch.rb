@@ -107,11 +107,14 @@ module TipitExtensions
 
       # This method is in the chain but it interrupt because it replaces the original method
       def receive_issue_with_tipit_patch
+        received_mail_logger.debug 'Entering receive_issue_with_tipit_patch'
         project = target_project
 
+        received_mail_logger.debug "preliminar target_project: #{project}"
+        
         if project.identifier == 'undefined-project'
           default_project_name = user.custom_value_for(CustomField.find_by_name('Default Project'))
-          default_project_name = default_project_name.nil? ? 'inbox' : default_project_name.to_s
+          default_project_name = (default_project_name.nil? || default_project_name.empty?) ? 'inbox' : default_project_name.to_s
           project = Project.find_by_identifier(default_project_name)
         end
 
