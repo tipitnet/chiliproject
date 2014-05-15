@@ -1,0 +1,11 @@
+<div xmlns="http://www.w3.org/1999/html">
+  <div class="box">
+    <h3>Clockability</h3>
+  <% if pending_items.size > 0 %>
+        <%= error %>
+        <p><%= l(:label_pending_items)%> <%= link_to l(:label_sync_now), :controller => 'sync' %></p>
+  <% else %>
+      <p><%= l(:label_no_pending_items)%></p>
+  <% end %>
+  </div>
+</div>

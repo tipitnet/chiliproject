@@ -96,6 +96,7 @@ DEPENDENCIES
   nokogiri
   rails (= 2.3.18)
   rdoc (>= 2.4.2)
+  rest-client
   rmagick (>= 1.15.17)
   ruby-openid (~> 2.1.4)
   rubytree (~> 0.5.2)
