@@ -7,3 +7,4 @@ This plugin integrates Chliliproject time logging features with Clockability. Th
 
 
 The integration is based on REST services.
+This plugin uses a project custom field 'Sync with Clockability' (boolean)
