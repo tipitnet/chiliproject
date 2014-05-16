@@ -8,3 +8,5 @@ This plugin integrates Chliliproject time logging features with Clockability. Th
 
 The integration is based on REST services.
 This plugin uses a project custom field 'Sync with Clockability' (boolean)
+The environment variable should be set CLOCKABILITY_ENDPOINT.
+For a user to see the Clockability pending sync issues he must be part of the tipit-staff group.
