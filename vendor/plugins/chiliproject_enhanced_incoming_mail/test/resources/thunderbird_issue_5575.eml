@@ -1,0 +1,99 @@
+Message-ID: <533D8A5B.3070502@tipit.net>
+Date: Thu, 03 Apr 2014 11:20:43 -0500
+From: Jimmy McArthur <jimmy@tipit.net>
+User-Agent: Postbox 3.0.9 (Macintosh/20140129)
+MIME-Version: 1.0
+To: chiliproject@staging.chili.tipit.net
+Subject: Testing a ticket submission with Postbox
+Content-Type: multipart/alternative;
+ boundary="------------080103080904090801090900"
+
+This is a multi-part message in MIME format.
+--------------080103080904090801090900
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hi - This is a test of a new bug submission.  Here's some text that 
+caused problems on a submission to Chili earlier this morning:
+
+Taking this off of Chili for a minute. I actually thought these were 
+supposed to go to you and Marc and you'd sort out what should and 
+shouldn't be elevated as a Chili ticket.  Does that sound familiar?
+
+Testing some bold
+
+  * This is a bullet #1
+  * This is a bullet #2
+
+
+Here's a little italics up in yer email for ya!
+
+ > I'm also testing some Chili styles like this indent
+
+* Here's a bullet
+
+*Chili Bold*
+
+-- 
+Jimmy McArthur / Tipit.net <http://Tipit.net>< jimmy@tipit.net 
+<mailto:jimmy@tipit.net>>
+m: 512.965.4846
+o: 512.481.1161
+
+
+
+--------------080103080904090801090900
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head><body
+ bgcolor="#FFFFFF" text="#000000">
+Hi - This is a test of a new bug submission.&nbsp; Here's some text that 
+caused problems on a submission to Chili earlier this morning:<br>
+  <br>
+  <span style="font-weight: bold;">
+Taking this off of Chili 
+for a minute. I actually thought these were supposed to go to you and 
+Marc and you'd sort out what should and shouldn't be elevated as a Chili
+ ticket.&nbsp; Does that sound familiar?<br>&nbsp;
+    <br>
+    <span style="font-weight: bold;">Testing some bold<br>
+      <br>
+    </span></span>
+  <ul>
+    <li>This is a bullet #1</li>
+    <li>This is a bullet #2</li>
+  </ul>
+  <br>
+Here's a little <span style="font-style: italic;">italics up in yer 
+email for ya!<br>
+    <br>
+  </span>&gt; I'm also testing some Chili styles like this indent<br>
+  <br>
+* Here's a bullet<span style="font-style: italic;"><span 
+style="font-weight: bold;"><br>
+      <br>
+    </span></span>*Chili Bold*<span style="font-style: italic;"><span 
+style="font-weight: bold;"><br>
+      <br>
+    </span></span>
+  <div class="moz-signature">-- <br><span><div style="color: rgb(136, 
+136, 136); margin-right: 24px;" __pbrmquotes="true" class="__pbConvBody"><span
+ style="color: rgb(0, 0, 0);">Jimmy McArthur / </span><a style="color: 
+rgb(0, 0, 0);" moz-do-not-send="true" href="http://Tipit.net">Tipit.net</a><span
+ style="color: rgb(0, 0, 0);"> &lt; </span><a style="color: rgb(0, 0, 
+0);" moz-do-not-send="true" href="mailto:jimmy@tipit.net">jimmy@tipit.net</a><span
+ style="color: rgb(0, 0, 0);">&gt;</span><br>
+
+          m: 512.965.4846
+          
+  <div>o: 512.481.1161</div>
+</div>&nbsp;
+  <br>
+</span><br>
+  </div>
+</body>
+</html>
+
+--------------080103080904090801090900--

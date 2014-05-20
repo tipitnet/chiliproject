@@ -1,0 +1,43 @@
+Return-Path: somebody@someplace.com
+Received: from zmail.someplace.com (LHLO zmail.someplace.com) (1.1.1.1) by
+ zmail.someplace.com with LMTP; Mon, 25 Jun 2012 09:59:23 -0500 (CDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by zmail.someplace.com (Postfix) with ESMTP id C8B25C420A9
+	for <somebody@someplace.com>; Mon, 25 Jun 2012 09:59:22 -0500 (CDT)
+X-Virus-Scanned: amavisd-new at zmail.someplace.com
+X-Spam-Flag: NO
+X-Spam-Score: -2.899
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.899 tagged_above=-10 required=6.6
+	tests=[ALL_TRUSTED=-1, BAYES_00=-1.9, HTML_MESSAGE=0.001]
+	autolearn=ham
+Received: from zmail.someplace.com ([127.0.0.1])
+	by localhost (zmail.someplace.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 7g1YKEafQz3D for <somebody@someplace.com>;
+	Mon, 25 Jun 2012 09:59:22 -0500 (CDT)
+Received: from [192.168.0.36] (unknown [190.188.50.14])
+	by zmail.someplace.com (Postfix) with ESMTPSA id 9AE46C420A7
+	for <somebody@someplace.com>; Mon, 25 Jun 2012 09:59:21 -0500 (CDT)
+From: Somebody <somebody@someplace.com>
+Content-Type: multipart/alternative; boundary="Apple-Mail=_167D1162-C0BA-4221-B493-7267166509EE"
+Subject: Replace quoted text
+Date: Mon, 25 Jun 2012 11:59:20 -0300
+Message-Id: <882752DF-1693-4957-BEE1-713331CF0BE9@someplace.com>
+To: somebody@someplace.com
+Mime-Version: 1.0 (Apple Message framework v1278)
+X-Mailer: Apple Mail (2.1278)
+
+
+--Apple-Mail=_167D1162-C0BA-4221-B493-7267166509EE
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=us-ascii
+
+This is quoted text
+--Apple-Mail=_167D1162-C0BA-4221-B493-7267166509EE
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; ">This is <cite>quoted</cite> text</body></html>
+--Apple-Mail=_167D1162-C0BA-4221-B493-7267166509EE--
