@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130142501) do
+ActiveRecord::Schema.define(:version => 20120320220031) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "container_id",                 :default => 0,  :null => false
@@ -342,12 +342,6 @@ ActiveRecord::Schema.define(:version => 20121130142501) do
   add_index "news", ["created_on"], :name => "index_news_on_created_on"
   add_index "news", ["project_id"], :name => "news_project_id"
 
-  create_table "nowatchers", :force => true do |t|
-    t.integer "user_id"
-    t.integer "watchable_id"
-    t.string  "watchable_type"
-  end
-
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
     t.integer "lifetime"
@@ -512,7 +506,6 @@ ActiveRecord::Schema.define(:version => 20121130142501) do
     t.string   "identity_url"
     t.string   "mail_notification",               :default => "",    :null => false
     t.string   "salt",              :limit => 64
-    t.string   "secondary_mail"
   end
 
   add_index "users", ["auth_source_id"], :name => "index_users_on_auth_source_id"
