@@ -13,8 +13,6 @@ alias=`cat $STACK_PATH/.cloud66/resources/aliases`
 eval echo "$alias" > /etc/aliases
 newaliases
 
-sudo useradd -m -s /bin/bash chiliproject
-
 cd /etc/postfix
 
 echo "${HOST_NAME}    ignored" >> /etc/postfix/virtual
