@@ -22,4 +22,4 @@ cd $STACK_PATH
 # create chiliproject user
 #sudo useradd -m -s /bin/bash chiliproject
 
-$STACK_PATH/.cloud66/scripts/configure_postfix.sh
+bash $STACK_PATH/.cloud66/scripts/configure_postfix.sh
