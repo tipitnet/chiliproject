@@ -36,8 +36,8 @@ module EnhancedIncomingMail
       process_headers
       process_lists
       process_anchors
-      process_spans
       process_brs
+      process_spans
       process_html_spaces
     end
 
@@ -88,7 +88,7 @@ module EnhancedIncomingMail
       @doc.css('h1', 'h2', 'h3').each do |node|
         text = node.children.to_s
 
-        node.replace("#{node.name}. " + text.strip + "\n\n")
+        node.replace("\n\n#{node.name}. " + text.strip + "\n\n")
       end
     end
 

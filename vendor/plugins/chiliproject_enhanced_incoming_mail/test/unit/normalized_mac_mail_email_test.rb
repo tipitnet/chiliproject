@@ -68,7 +68,7 @@ class NormalizedMacMailEmailTest < ActiveSupport::TestCase
 		normalized_email = EnhancedIncomingMail::NormalizedMacMailEmail.new email
 		normalized_email.clean_format!
 
-		assert_match /This is a\r?\nh1. Heading 1\r?\ntext/, normalized_email.email
+		assert_match /This is a \r?\n\r?\nh1. Heading 1\r?\n\r?\ntext/, normalized_email.email
 	end
 
 	def test_replace_heading2_tags
@@ -78,7 +78,7 @@ class NormalizedMacMailEmailTest < ActiveSupport::TestCase
 		normalized_email = EnhancedIncomingMail::NormalizedMacMailEmail.new email
 		normalized_email.clean_format!
 
-		assert_match /This is a\r?\nh2. Heading 2\r?\ntext/, normalized_email.email
+		assert_match /This is a \r?\n\r?\nh2. Heading 2\r?\n\r?\ntext/, normalized_email.email
 	end
 
 	def test_replace_heading3_tags
@@ -88,7 +88,7 @@ class NormalizedMacMailEmailTest < ActiveSupport::TestCase
 		normalized_email = EnhancedIncomingMail::NormalizedMacMailEmail.new email
 		normalized_email.clean_format!
 
-		assert_match /This is a\r?\nh3. Heading 3\r?\ntext/, normalized_email.email
+		assert_match /This is a \r?\n\r?\nh3. Heading 3\r?\n\r?\ntext/, normalized_email.email
 	end
 
 	def test_replace_links
@@ -159,7 +159,7 @@ class NormalizedMacMailEmailTest < ActiveSupport::TestCase
     #normalized_email.embed_images!
 
     replaced_email = normalized_email.email
-    assert_match /first reply from MacMail/m, replaced_email
+    assert_match /first=\r?\n reply from MacMail/m, replaced_email
     #assert_no_match /Status/, replaced_email
   end
 

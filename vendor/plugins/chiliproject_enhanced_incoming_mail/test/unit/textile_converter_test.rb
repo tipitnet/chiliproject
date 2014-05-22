@@ -29,23 +29,23 @@ class TextileConverterTest < ActiveSupport::TestCase
   end
 
   def test_heading
-    assert_textile "h1. Heading 1\n\n",
+    assert_textile "\n\nh1. Heading 1\n\n",
                    '<h1>Heading 1</h1>'
 
-    assert_textile "h2. Heading 2\n\n",
+    assert_textile "\n\nh2. Heading 2\n\n",
                    '<h2>Heading 2</h2>'
 
-    assert_textile "h3. Heading 3\n\n",
+    assert_textile "\n\nh3. Heading 3\n\n",
                    '<h3>Heading 3</h3>'
   end
 
   def test_heading_with_color
-    assert_textile "h1. Hello %{color: red}world%\n\n",
+    assert_textile "\n\nh1. Hello %{color: red}world%\n\n",
                    '<h1>Hello <span style="color: red">world</span></h1>'
   end
 
   def test_heading_with_spaces
-    assert_textile "h1. Th is is a headi ng\n\n",
+    assert_textile "\n\nh1. Th is is a headi ng\n\n",
                    '<h1>  Th
      is is a headi  ng           </h1>'
   end
@@ -61,7 +61,7 @@ class TextileConverterTest < ActiveSupport::TestCase
   end
 
   def test_span_with_new_lines
-    assert_textile "%{font-weight: bold;}Testing some bold\n\n%",
+    assert_textile "\n%{font-weight: bold;}Testing some bold%\n\n",
                    '<span style="font-weight: bold;">Testing some bold<br><br></span>'
   end
 
@@ -94,7 +94,7 @@ class TextileConverterTest < ActiveSupport::TestCase
   end
 
   def test_clean_span_without_style
-    assert_textile "test\n\n%{font-weight: bold;}Testing some bold\n\n%test",
+    assert_textile "test\n\n\n%{font-weight: bold;}Testing some bold%\n\ntest",
                    "<span>test<br><br><span style=\"font-weight: bold;\">Testing some bold<br><br></span></span>test"
   end
 
@@ -291,7 +291,7 @@ No leading spaces'
   end
 
   def test_no_space_after_new_line_for_h1
-    assert_textile "\nh1. Heading\n\n", '<br><h1>
+    assert_textile "\n\n\nh1. Heading\n\n", '<br><h1>
 Heading</h1>'
   end
 
