@@ -1,0 +1,305 @@
+From: "Somebody Marcet" <somebody@someplace.com>
+To: <chiliproject@dev.chili.someplace.com>
+Subject: [Outlook] Rich text email
+Date: Mon, 16 Jul 2012 11:51:07 -0300
+Message-ID: <030f01cd6362$70832480$51896d80$@someplace.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0310_01CD6349.4B38ABA0"
+X-Mailer: Microsoft Outlook 14.0
+Thread-Index: AQHqf/zlzVNIzVbn9c1f9UkD0mcVJA==
+Content-Language: es-ar
+X-OlkEid: A9040023C506C3185FA1D94CA1256538278F4BAD
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0310_01CD6349.4B38ABA0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+This is a VERY RICH TEXT email to create a new issue
+
+Will this:
+
+*	Work
+*	Not Work
+
+Who:
+
+1.	Knows
+2.	Not Knows
+
+No images included
+
+
+This is a Heading 1
+
+
+And this is a Heading 2
+
+
+Finally, this is a Heading 3
+
+
+And this text is indented
+
+While this is double indented
+
+The final test is this link:  <http://www.google.com>
+http://www.google.com
+
+
+------=_NextPart_000_0310_01CD6349.4B38ABA0
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><META =
+HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 14 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;}
+h1
+	{mso-style-priority:9;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:24.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;
+	font-weight:bold;}
+h2
+	{mso-style-priority:9;
+	mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;
+	font-weight:bold;}
+h3
+	{mso-style-priority:9;
+	mso-style-link:"Heading 3 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:13.5pt;
+	font-family:"Times New Roman","serif";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-link:"Heading 1";
+	font-family:"Times New Roman","serif";
+	color:black;
+	mso-fareast-language:ES-AR;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-priority:9;
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman","serif";
+	color:black;
+	mso-fareast-language:ES-AR;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-priority:9;
+	mso-style-link:"Heading 3";
+	font-family:"Times New Roman","serif";
+	color:black;
+	mso-fareast-language:ES-AR;
+	font-weight:bold;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:250547991;
+	mso-list-template-ids:1078885906;}
+@list l1
+	{mso-list-id:666595774;
+	mso-list-template-ids:-1431117470;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DES-AR link=3Dblue =
+vlink=3Dpurple><div class=3DWordSection1><p class=3DMsoNormal><u><span =
+lang=3DEN-US =
+style=3D'font-family:"Arial","sans-serif"'>This</span></u><span =
+lang=3DEN-US style=3D'font-family:"Arial","sans-serif"'> is a =
+<b>VERY</b> <i>RICH TEXT</i> email to create a <b><i>new =
+issue</i></b><br><br>Will this:<o:p></o:p></span></p><ul type=3Ddisc><li =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l1 =
+level1 lfo1'><span =
+style=3D'font-family:"Arial","sans-serif"'>Work<o:p></o:p></span></li><li=
+ class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l1 =
+level1 lfo1'><span style=3D'font-family:"Arial","sans-serif"'>Not =
+<i>Work</i><o:p></o:p></span></li></ul><p =
+style=3D'margin-bottom:12.0pt'><span =
+style=3D'font-family:"Arial","sans-serif"'>Who:<o:p></o:p></span></p><ol =
+start=3D1 type=3D1><li class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l0 =
+level1 lfo2'><span =
+style=3D'font-family:"Arial","sans-serif"'>Knows<o:p></o:p></span></li><l=
+i class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l0 =
+level1 lfo2'><b><span =
+style=3D'font-family:"Arial","sans-serif"'>Not</span></b><span =
+style=3D'font-family:"Arial","sans-serif"'> =
+Knows<o:p></o:p></span></li></ol><p><u><span =
+style=3D'font-family:"Arial","sans-serif"'>No images</span></u><span =
+style=3D'font-family:"Arial","sans-serif"'> =
+included<o:p></o:p></span></p><h1><span =
+style=3D'font-family:"Arial","sans-serif"'>This is a Heading =
+1<o:p></o:p></span></h1><h2><span lang=3DEN-US =
+style=3D'font-family:"Arial","sans-serif"'>And this is a Heading =
+2<o:p></o:p></span></h2><h3><span lang=3DEN-US =
+style=3D'font-family:"Arial","sans-serif"'>Finally, this is a Heading =
+3<o:p></o:p></span></h3><p style=3D'margin-left:35.4pt'><span =
+lang=3DEN-US style=3D'font-family:"Arial","sans-serif"'>And this text is =
+indented<o:p></o:p></span></p><p style=3D'margin-left:70.8pt'><span =
+lang=3DEN-US style=3D'font-family:"Arial","sans-serif"'>While this is =
+double indented<o:p></o:p></span></p><p class=3DMsoNormal><span =
+lang=3DEN-US style=3D'font-family:"Arial","sans-serif"'>The final test =
+is this link: </span><span style=3D'font-family:"Arial","sans-serif"'><a =
+href=3D"http://www.google.com"><span =
+lang=3DEN-US>http://www.google.com</span></a></span><span lang=3DEN-US =
+style=3D'font-size:11.0pt;font-family:"Arial","sans-serif";color:windowte=
+xt'><o:p></o:p></span></p></div></body></html>
+------=_NextPart_000_0310_01CD6349.4B38ABA0--
