@@ -6,7 +6,6 @@ if [[ "$HOST_NAME" == "" ]]
 	then export HOST_NAME=${SERVER_NAME,,}.${BOX_NAME}.c66.me
 fi
 
-export HOST_NAME=${SERVER_NAME,,}.${BOX_NAME}.c66.me
 export INCOMING_EMAIL_ADDRESS=chiliproject@${HOST_NAME}
 export SERVER_URL=http://${HOST_NAME}
 
