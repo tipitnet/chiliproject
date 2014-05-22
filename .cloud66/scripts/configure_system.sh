@@ -11,7 +11,7 @@ cd $STACK_PATH
 mkdir -p tmp public/plugin_assets
 sudo touch log/received_emails.log
 sudo chown -R nginx:app_writers files log tmp public/plugin_assets
-sudo chmod -R 755 files log tmp public/plugin_assets
+sudo chmod -R 775 files log tmp public/plugin_assets
 
 # configure mail handler scripts
 cd /etc/postfix
