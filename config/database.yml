@@ -5,6 +5,15 @@ production:
   database: <%= ENV['MYSQL_DATABASE'] %>
   host: <%= ENV['MYSQL_ADDRESS'] %>
 
+
+test:
+  adapter: mysql2
+  database: chiliproject_testdb
+  host: localhost
+  username: root
+  password:
+  encoding: utf8
+
 development:
   adapter: mysql2
   database: chiliproject_development

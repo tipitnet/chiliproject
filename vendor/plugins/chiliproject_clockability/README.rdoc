@@ -1,0 +1,12 @@
+= clockability
+
+This plugin integrates Chliliproject time logging features with Clockability. The main features provided by this plugin are:
+
+* When a new time entry is created in Clockability (and an issue number is provided), then a time entry is generated in Chili, and it is associated to the corresponding issue.
+* When new time entry is created in Chili, it is also generated in Clockability. If the commucation fails, then the Chili item is flagged as pending for later sync.
+
+
+The integration is based on REST services.
+This plugin uses a project custom field 'Sync with Clockability' (boolean)
+The environment variable should be set CLOCKABILITY_ENDPOINT.
+For a user to see the Clockability pending sync issues he must be part of the tipit-staff group.
