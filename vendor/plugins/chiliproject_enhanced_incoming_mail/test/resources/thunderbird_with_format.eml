@@ -1,0 +1,165 @@
+Return-Path: <cacciaresi@gmail.com>
+Received: from [192.168.1.112] ([186.136.108.233])
+        by mx.google.com with ESMTPSA id y71sm450196qgd.3.2014.02.19.06.10.26
+        for <cacciaresi@gmail.com>
+        (version=TLSv1 cipher=ECDHE-RSA-RC4-SHA bits=128/128);
+        Wed, 19 Feb 2014 06:10:28 -0800 (PST)
+Message-ID: <5304BB50.8090101@gmail.com>
+Date: Wed, 19 Feb 2014 11:10:24 -0300
+From: Claudio Acciaresi <cacciaresi@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+MIME-Version: 1.0
+To: cacciaresi@gmail.com
+Subject: Re: [test project - Bug #13] (New) Textile Converter
+References: <chiliproject.issue-13.20140219110316@example.net>
+In-Reply-To: <chiliproject.issue-13.20140219110316@example.net>
+Content-Type: multipart/alternative;
+ boundary="------------020704090606000502020406"
+
+This is a multi-part message in MIME format.
+--------------020704090606000502020406
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+This is another test with formatting in the middle of the line:
+
+common line with *bold* in the middle and also /italic/ and a word with _=
+*both*_.
+
+With a link to google <http://www.google.com>
+
+Nothing else.
+
+On 19/02/14 11:03, cacciaresi@gmail.com wrote:
+> WHEN REPLYING, DO NOT ADD TEXT BELOW THIS LINE.
+> Issue #13 has been reported by ChiliProject Admin.
+> -----------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------
+>
+>
+>   Bug #13: Textile Converter <http://localhost:3000/issues/13>
+>
+>   * Author: ChiliProject Admin
+>   * Status: New
+>   * Priority: Normal
+>   * Assignee: Diego Maradona
+>   * Category:
+>   * Target version:
+>
+> -----------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------------------------------------=
+-------------------------------------------
+>
+> You have received this notification because you have either subscribed =
+to it, or are involved in it.
+> To change your notification preferences, please click here: http://host=
+name/my/account
+>
+
+
+--------------020704090606000502020406
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    This is another test with formatting in the middle of the line:<br>
+    <br>
+    common line with <b>bold</b> in the middle and also <i>italic</i>
+    and a word with <u><b>both</b></u>.<br>
+    <br>
+    With a link to <a href="http://www.google.com">google</a><br>
+    <br>
+    Nothing else.<br>
+    <br>
+    <div class="moz-cite-prefix">On 19/02/14 11:03, <a class="moz-txt-link-abbreviated" href="mailto:cacciaresi@gmail.com">cacciaresi@gmail.com</a>
+      wrote:<br>
+    </div>
+    <blockquote
+      cite="mid:chiliproject.issue-13.20140219110316@example.net"
+      type="cite">
+      <style>
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
+  color:#484848;
+}
+h1, h2, h3 { font-family: "Trebuchet MS", Verdana, sans-serif; margin: 0px; }
+h1 { font-size: 1.2em; }
+h2, h3 { font-size: 1.1em; }
+a, a:link, a:visited { color: #2A5685;}
+a:hover, a:active { color: #c61a1a; }
+a.wiki-anchor { display: none; }
+hr {
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  border: 0;
+}
+blockquote {
+  border-left: 3px solid #E0E0E0;
+  font-style: italic;
+  margin-left: 2.4em;
+  padding-left: 0.6em;
+}
+.footer {
+  font-size: 0.8em;
+  font-style: italic;
+}
+</style><span class="header"></span>
+      <div id="issue_details"> <span>WHEN REPLYING, DO NOT ADD TEXT
+          BELOW THIS LINE.</span><br>
+        Issue #13 has been reported by ChiliProject Admin.
+        <hr>
+        <h1><a moz-do-not-send="true"
+            href="http://localhost:3000/issues/13">Bug #13: Textile
+            Converter</a></h1>
+        <ul>
+          <li>Author: ChiliProject Admin</li>
+          <li>Status: New</li>
+          <li>Priority: Normal</li>
+          <li>Assignee: Diego Maradona</li>
+          <li>Category: </li>
+          <li>Target version: </li>
+        </ul>
+      </div>
+      <hr>
+      <span class="footer">
+        <p>You have received this notification because you have either
+          subscribed to it, or are involved in it.<br>
+          To change your notification preferences, please click here: <a
+            moz-do-not-send="true" class="external"
+            href="http://hostname/my/account">http://hostname/my/account</a></p>
+      </span>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------020704090606000502020406--

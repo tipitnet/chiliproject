@@ -1,0 +1,2 @@
+gem 'mail'
+gem 'mime-types'

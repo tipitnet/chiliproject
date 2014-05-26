@@ -19,6 +19,7 @@ branches:
     - master
     - stable
     - tipit_extensions
+    - email-enhancements
     - production
     - /^stable-.*$/
     - /^release-.*$/
