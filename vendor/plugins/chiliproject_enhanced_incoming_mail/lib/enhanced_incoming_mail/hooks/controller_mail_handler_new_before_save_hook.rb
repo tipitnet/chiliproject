@@ -50,7 +50,8 @@ module EnhancedIncomingMail
             received_mail_logger.info("Incoming email successfully normalized. Result: #{normalized_mail.email}")
 
           rescue Exception
-            received_mail_logger.error($!)
+            received_mail_logger.error($!.message)
+            received_mail_logger.error($!.backtrace.join("\n"))
           end
         end
       end
