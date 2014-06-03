@@ -46,7 +46,7 @@ config.action_mailer.smtp_settings = {
   domain: ENV['SMTP_DOMAIN'],
   authentication: ENV['SMTP_AUTH'],
   user_name: ENV["SMTP_USERNAME"],
-  password: ENV["SMTP_PASSWORD"]
+  password: ENV["SMTP_PASSWORD"],
   ssl: ENV["SMTP_USE_SSL"]
 }
 
