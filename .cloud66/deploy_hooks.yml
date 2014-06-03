@@ -8,8 +8,10 @@ production:
       apply_during: build_only
 
   after_symlink:
-    - command: cd $STACK_PATH && bundle exec rake generate_session_store
+    - source: /.cloud66/scripts/post_deploy.sh
+      destination: /tmp/post_deploy.sh
       target: rails
+      execute: true
       run_on: single_server
       apply_during: all 
 
