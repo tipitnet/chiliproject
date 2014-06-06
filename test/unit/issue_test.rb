@@ -895,4 +895,21 @@ class IssueTest < ActiveSupport::TestCase
     assert_equal "Description with newlines\n\nembedded", issue.reload.description
   end
 
+
+  test 'changing the line endings and carry returns in a description will not be recorded as a Journal' do
+    User.current = User.find(1)
+    issue = Issue.find(1)
+    issue.update_attribute(:description, "Description with newlines\r\r\n\r\r\nembedded")
+    issue.reload
+    assert issue.description.include?("\n")
+
+    assert_no_difference("Journal.count") do
+      issue.safe_attributes= {
+          'description' => "Description with newlines\r\n\r\n\r\n\r\nembedded"
+      }
+      assert issue.save
+    end
+
+    assert_equal "Description with newlines\r\r\n\r\r\nembedded", issue.reload.description
+  end
 end
