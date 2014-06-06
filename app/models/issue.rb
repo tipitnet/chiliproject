@@ -288,7 +288,10 @@ class Issue < ActiveRecord::Base
     # Bug #501: browsers might swap the line endings causing a Journal.
     if attrs.has_key?('description') && attrs['description'].present?
       new_description = attrs['description'].gsub("\n","").gsub("\r","")
-      old_description = self.description.gsub("\n","").gsub("\r","")
+      old_description = self.description
+      if (!old_description.nil?)
+        old_description = old_description.gsub("\n","").gsub("\r","")
+      end
       if (new_description == old_description)
         attrs.delete('description')
       end
