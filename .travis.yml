@@ -18,8 +18,7 @@ branches:
     - unstable
     - master
     - stable
-    - tipit_extensions
-    - email-enhancements
+    - test
     - production
     - /^stable-.*$/
     - /^release-.*$/
