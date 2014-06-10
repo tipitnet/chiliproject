@@ -3,6 +3,7 @@ set -e
 
 # load default data
 cd $STACK_PATH 
+bundle exec rake generate_session_store
 bundle exec rake db:migrate:plugins
 bundle exec rake redmine:load_default_data
 
