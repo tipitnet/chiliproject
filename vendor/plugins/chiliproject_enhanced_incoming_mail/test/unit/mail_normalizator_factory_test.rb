@@ -50,7 +50,7 @@ class MailNormalizatorFactoryTest < ActiveSupport::TestCase
 	end
 
   def test_create_normalized_zimbra
-    raw_email = get_mail_sample :zimbra_reply
+    raw_email = get_mail_sample :zimbra_7_2_0_reply
 
     normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
 
