@@ -153,6 +153,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects, :member => {
     :copy => [:get, :post],
     :settings => :get,
+    :pad => :get,
     :modules => :post,
     :archive => :post,
     :unarchive => :post

@@ -14,6 +14,7 @@
 
 class ProjectsController < ApplicationController
   menu_item :overview
+  menu_item :etherpad
   menu_item :roadmap, :only => :roadmap
   menu_item :settings, :only => :settings
 
@@ -152,6 +153,9 @@ class ProjectsController < ApplicationController
   end
 
   def settings
+  end
+
+  def pad
   end
 
   def edit
