@@ -15,6 +15,8 @@ gem "acts-as-taggable-on", "= 2.1.0"
 gem 'gravatarify', '~> 3.0.0'
 gem "tzinfo", "~> 0.3.31" # Fixes #903. Not required for Rails >= 3.2
 
+gem 'etherpad-lite'
+
 group :test do
   gem 'shoulda', '~> 2.10.3'
   # Shoulda doesn't work nice on 1.9.3 and seems to need test-unit explicitely…

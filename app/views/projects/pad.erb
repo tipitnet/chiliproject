@@ -2,11 +2,12 @@
     <%= javascript_include_tag 'etherpad.js' %>
 <% end %>
 
-<div id="pad" style="height: 100%"></div>
+<div id="pad" style="min-height: 500px"></div>
 
 
 <script>
-var projectId = 'ppp<%=@project.identifier %>';
-var padUrl = 'https://beta.etherpad.org/' + projectId;
-jQuery('#pad').pad({'padId':projectId,'width':'100%', 'height':'100%'});
+var userName = '<%=@user_name %>';
+var projectId = '<%=@target_pad %>';
+var padHost = '<%=@pad_host %>';
+jQuery('#pad').pad({'padId':projectId,'width':'100%', 'height':'700px', 'userName': userName, 'host': padHost });
 </script>

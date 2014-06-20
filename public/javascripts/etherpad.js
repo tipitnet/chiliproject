@@ -2,13 +2,13 @@
 
   $.fn.pad = function( options ) {
     var settings = {
-      'host'              : 'http://beta.etherpad.org',
+      'host'              : 'http://0.0.0.0:9001',
       'baseUrl'           : '/p/',
-      'showControls'      : false,
+      'showControls'      : true,
       'showChat'          : false,
       'showLineNumbers'   : false,
-      'userName'          : 'unnamed',
-      'useMonospaceFont'  : false,
+      'userName'          : 'nouser',
+      'useMonospaceFont'  : true,
       'noColors'          : false,
       'userColor'         : false,
       'hideQRCode'        : false,
