@@ -155,8 +155,8 @@ class ProjectsController < ApplicationController
   end
 
   def pad
-    @pad_host = ENV['pad_host']
-    pad_key = ENV['pad_key']
+    @pad_host = ENV['PAD_HOST']
+    pad_key = ENV['PAD_KEY']
     session[:ep_sessions] = {} if session[:ep_sessions].nil?
     ether = EtherpadLite.connect(@pad_host, pad_key)
     # Get the EtherpadLite Group and Pad by id
