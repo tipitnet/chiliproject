@@ -1,6 +1,5 @@
 require 'redmine'
 
-
 # Patches to the Redmine core.
 require 'dispatcher'
 
@@ -46,3 +45,5 @@ Redmine::Plugin.register :chiliproject_tipit_extensions do
   version '0.0.1'
   url 'http://www.tipit.net/about'
 end
+
+require 'tipit_extensions/hooks'

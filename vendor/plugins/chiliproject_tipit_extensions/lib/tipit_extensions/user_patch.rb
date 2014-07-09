@@ -14,6 +14,7 @@ module TipitExtensions
           alias_method_chain :find_by_mail, :tipit_patch
         end
         safe_attributes 'secondary_mail'
+        safe_attributes 'default_project_id'
       end
 
     end
@@ -32,6 +33,9 @@ module TipitExtensions
 
     module InstanceMethods
 
+      def default_project
+        Project.find_by_id(default_project_id)
+      end
 
     end
   end
