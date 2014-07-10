@@ -9,5 +9,8 @@ module TipitExtensions
     #   :f      => the form object to create additional fields
     render_on :view_users_form,
               :partial => 'users/extended_form'
+
+    render_on :view_projects_form,
+              :partial => 'projects/extended_form'
   end
 end

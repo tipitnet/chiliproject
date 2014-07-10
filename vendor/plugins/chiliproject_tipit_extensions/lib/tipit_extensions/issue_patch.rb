@@ -32,7 +32,7 @@ module TipitExtensions
 
       def is_watcher?(user)
         if(self.new_record?)
-          return self.get_default_watchers().include?(user.login)
+          return self.project.is_default_watcher(user)
         else
           return self.watched_by(user)
         end
@@ -40,9 +40,7 @@ module TipitExtensions
 
       def get_default_watchers()
         begin
-          default_watchers_field = CustomField.find_by_name('Default watchers')
-          return "" if default_watchers_field.nil?
-          default_watchers = project.custom_value_for(default_watchers_field)
+          default_watchers = project.default_watchers
           if (default_watchers.nil?)
             result = ""
           else

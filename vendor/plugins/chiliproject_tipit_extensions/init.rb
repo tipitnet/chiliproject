@@ -17,6 +17,11 @@ Dispatcher.to_prepare :chiliproject_tipit_extensions do
     User.send(:include, TipitExtensions::UserPatch)
   end
 
+  require_dependency 'project'
+  unless Project.included_modules.include? TipitExtensions::ProjectPatch
+    Project.send(:include, TipitExtensions::ProjectPatch)
+  end
+
   require_dependency 'wiki_controller'
   unless WikiController.included_modules.include? TipitExtensions::WikiControllerPatch
     WikiController.send(:include, TipitExtensions::WikiControllerPatch)
