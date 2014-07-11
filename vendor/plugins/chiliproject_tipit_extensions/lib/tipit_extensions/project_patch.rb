@@ -11,6 +11,7 @@ module TipitExtensions
 
       base.class_eval do
         safe_attributes 'default_watchers'
+        safe_attributes 'wiki_template'
       end
 
     end
