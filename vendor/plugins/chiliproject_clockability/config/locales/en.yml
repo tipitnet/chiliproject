@@ -3,3 +3,4 @@ en:
   label_pending_items: "There are time entries pending to be synced with Clockability."
   label_sync_now: "Sync now"
   label_no_pending_items: "There are no pending items to be synced "
+  field_sync_with_clock: "Sync with Clockability"

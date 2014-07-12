@@ -30,11 +30,11 @@ module Clockability
         project = time_entry.project
 
         Rails.logger.debug("Hook>Processing time_entry #{time_entry.id}")
-        should_sync_with_clock = project.custom_value_for(CustomField.find_by_name('Sync with Clockability'))
+        should_sync_with_clock = project.sync_with_clock
 
         return if should_sync_with_clock.nil?
 
-        if((!time_entry.hours.nil?) && (should_sync_with_clock.value=="1"))
+        if((!time_entry.hours.nil?) && (should_sync_with_clock))
 
           user_key = time_entry.user.api_token.value
 
@@ -61,7 +61,6 @@ module Clockability
         Rails.logger.error("Hook> Error processing time_entry:#{time_entry.id}")
         Rails.logger.error(e.message)
       end
-
 
     end
   end

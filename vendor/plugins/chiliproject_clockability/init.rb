@@ -13,6 +13,11 @@ Dispatcher.to_prepare :chiliproject_clockability do
     IssuesController.send(:include, Clockability::IssuesControllerPatch)
   end
 
+  require_dependency 'project'
+  unless Project.included_modules.include? Clockability::ProjectPatch
+    Project.send(:include, Clockability::ProjectPatch)
+  end
+
 end
 
 Redmine::Plugin.register :chiliproject_clockability do
@@ -24,3 +29,4 @@ Redmine::Plugin.register :chiliproject_clockability do
 end
 
 require 'clockability/view_welcome_index_hook'
+require 'clockability/hooks'
