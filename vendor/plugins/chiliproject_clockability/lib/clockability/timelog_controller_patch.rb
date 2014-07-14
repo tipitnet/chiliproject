@@ -36,11 +36,11 @@ module Clockability
 
         project = time_entry.project
 
-        should_sync_with_clock = project.custom_value_for(CustomField.find_by_name('Sync with Clockability'))
+        should_sync_with_clock = project.sync_with_clock
 
         return if should_sync_with_clock.nil?
 
-        if((!time_entry.hours.nil?) && (should_sync_with_clock.value=='1'))
+        if((!time_entry.hours.nil?) && (should_sync_with_clock))
           
           user_key = time_entry.user.api_token.value
 

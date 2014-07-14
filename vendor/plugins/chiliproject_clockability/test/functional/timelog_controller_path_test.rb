@@ -17,7 +17,6 @@ class TimelogControllerPatchTest < ActionController::TestCase
     # TODO: should POST to issues’ time log instead of project. change form
     # and routing
 
-    CustomField.expects(:find_by_name).with('Sync with Clockability').returns(nil)
     Clockability::ClockabilityProxy.expects(:new).times(0)
 
 
@@ -42,12 +41,8 @@ class TimelogControllerPatchTest < ActionController::TestCase
   end
 
 
-  def test_post_create_should_not_call_proxy_when_sync_is_0
-    mockField = mock()
-    CustomField.expects(:find_by_name).with('Sync with Clockability').returns(mockField)
-    mockValue = mock()
-    mockValue.expects(:value).returns('0')
-    Project.any_instance.expects(:custom_value_for).with(mockField).returns(mockValue)
+  def test_post_create_should_not_call_proxy_when_sync_is_false
+    Project.any_instance.expects(:sync_with_clock).returns(false)
     Clockability::ClockabilityProxy.expects(:new).times(0)
 
     @request.session[:user_id] = 3
@@ -70,15 +65,11 @@ class TimelogControllerPatchTest < ActionController::TestCase
     assert_equal i.project, t.project
   end
 
-  def test_post_create_should_call_proxy_when_sync_is_1
+  def test_post_create_should_call_proxy_when_sync_is_true
     # TODO: should POST to issues’ time log instead of project. change form
     # and routing
 
-    mockField = mock()
-    CustomField.expects(:find_by_name).with('Sync with Clockability').returns(mockField)
-    mockValue = mock()
-    mockValue.expects(:value).returns('1')
-    Project.any_instance.expects(:custom_value_for).with(mockField).returns(mockValue)
+    Project.any_instance.expects(:sync_with_clock).returns(true)
 
     api_token_mock = mock()
     api_token_mock.expects(:value).returns('xxx')

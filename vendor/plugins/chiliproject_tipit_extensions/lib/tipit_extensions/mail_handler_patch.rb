@@ -113,9 +113,12 @@ module TipitExtensions
         received_mail_logger.debug "preliminar target_project: #{project}"
         
         if project.identifier == 'undefined-project'
-          default_project_name = user.custom_value_for(CustomField.find_by_name('Default Project'))
-          default_project_name = (default_project_name.nil? || default_project_name.to_s.empty?) ? 'inbox' : default_project_name.to_s
-          project = Project.find_by_identifier(default_project_name)
+
+          project = user.default_project
+          if (project.nil?)
+            project = Project.find_by_identifier('inbox')
+          end
+
         end
 
         # check permission, TODO: validate if this is required

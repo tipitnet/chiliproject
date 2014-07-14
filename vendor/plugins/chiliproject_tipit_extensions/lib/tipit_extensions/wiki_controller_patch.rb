@@ -99,7 +99,7 @@ module TipitExtensions
 
       def initial_page_content_with_tipit_patch(page)
         wiki_template = "h1. #{page.pretty_title} \n\r"
-        wiki_template += page.project.custom_value_for(CustomField.find_by_name('Wiki template')).to_s
+        wiki_template += page.project.wiki_template
         wiki_template
       end
 
