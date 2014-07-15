@@ -167,13 +167,12 @@ module TipitExtensions
 
       def add_default_watchers(issue)
         received_mail_logger.debug "Entering add_default_watchers"
-        default_watchers = issue.get_default_watchers
-        default_watchers = default_watchers.gsub(/\s+/, "")
+        default_watchers = issue.project.default_watchers
         received_mail_logger.debug "Default watchert to add [#{default_watchers}]"
         default_watchers_list = default_watchers.split(',')
-        default_watchers_list.each do | watcher_login |
-          watcher = User.find_by_login(watcher_login)
-          issue.add_watcher(watcher)
+        default_watchers_list.each do | watcher_id |
+          watcher = User.find(watcher_id)
+          issue.add_watcher(watcher) unless watcher.nil?
         end
         received_mail_logger.debug "Exiting add_default_watchers"
       end
