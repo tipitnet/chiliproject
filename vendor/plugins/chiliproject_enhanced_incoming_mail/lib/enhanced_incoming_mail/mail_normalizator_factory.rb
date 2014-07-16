@@ -66,6 +66,10 @@ module EnhancedIncomingMail
         email_client = :thunderbird
       end
 
+      if (email_client == :other && email.to_s =~ /urn:schemas-microsoft-com:office/ )
+        email_client = :ms_outlook
+      end
+
       email_client
     end
   end

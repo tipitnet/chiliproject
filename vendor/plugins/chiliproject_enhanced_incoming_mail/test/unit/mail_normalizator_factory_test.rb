@@ -58,4 +58,11 @@ class MailNormalizatorFactoryTest < ActiveSupport::TestCase
     assert normalizator.class.name == "EnhancedIncomingMail::NormalizedZimbraEmail"
   end
 
+  def test_create_normalized_outlook_case_2
+    raw_email = get_mail_sample :outlook_case_2
+    normalizator = EnhancedIncomingMail::MailNormalizatorFactory.create_mail_normalized raw_email
+    assert_not_nil normalizator
+    assert normalizator.class.name == "EnhancedIncomingMail::NormalizedOutlookEmail"
+  end
+
 end
