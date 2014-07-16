@@ -155,7 +155,9 @@ module EnhancedIncomingMail
 
   # removes recursively plain text parts
     def remove_plain_text_parts(message)
-      message.parts.delete_if {|p| p.content_type =~ /text\/plain/i }
+      # if content_type contains 'name=', then is not the plain text part of the email message
+      # but a plain text attachment
+      message.parts.delete_if {|p| p.content_type =~ /text\/plain/i && !(p.content_type =~ /name=/i) }
 
       for part in message.parts
         remove_plain_text_parts(part)
