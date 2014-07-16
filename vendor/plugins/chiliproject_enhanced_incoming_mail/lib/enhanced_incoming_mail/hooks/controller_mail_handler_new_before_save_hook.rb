@@ -45,8 +45,6 @@ module EnhancedIncomingMail
 
             context[:params][:email] = normalized_mail.email
 
-            File.open('email_result.txt', 'w') {|f| f.write(normalized_mail.email) }
-
             received_mail_logger.info("Incoming email successfully normalized. Result: #{normalized_mail.email}")
 
           rescue Exception
