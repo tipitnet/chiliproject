@@ -309,7 +309,7 @@ class MailHandler < ActionMailer::Base
     if parts.empty?
       parts << @email
     end
-    plain_text_part = parts.detect {|p| p.content_type == 'text/plain'}
+    plain_text_part = parts.detect {|p| p.content_type == 'text/plain' && !p.has_attachments? }
     if plain_text_part.nil?
       # no text/plain part found, assuming html-only email
       # strip html tags and remove doctype directive
