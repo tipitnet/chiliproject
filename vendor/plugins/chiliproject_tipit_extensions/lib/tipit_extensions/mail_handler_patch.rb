@@ -58,7 +58,7 @@ module TipitExtensions
 
           result = true
 
-          received_mail_logger.info "Email received processing start: #{email.from.to_s}, #{email.subject}"
+          received_mail_logger.info "Email received processing start: #{email.from.to_s}, subject: #{email.subject}"
 
           received_mail_logger.debug "Email client detection start"
           user_agent = get_email_client_type(email)
@@ -113,7 +113,7 @@ module TipitExtensions
         received_mail_logger.debug 'Entering receive_issue_with_tipit_patch'
         project = target_project
 
-        received_mail_logger.debug "preliminar target_project: #{project}"
+        #received_mail_logger.debug "preliminar target_project: #{project}"
         
         if project.identifier == 'undefined-project'
 
@@ -121,6 +121,8 @@ module TipitExtensions
           if (project.nil?)
             project = Project.find_by_identifier('inbox')
           end
+
+          received_mail_logger.debug "target_project: #{project.identifier}"
 
         end
 
