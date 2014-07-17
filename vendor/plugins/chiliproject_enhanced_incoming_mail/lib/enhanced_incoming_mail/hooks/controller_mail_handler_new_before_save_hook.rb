@@ -3,7 +3,11 @@ module EnhancedIncomingMail
     class ControllerMailHandlerNewBeforeSaveHook < Redmine::Hook::ViewListener
 
       def received_mail_logger
-        @@tipit_logger ||= create_logger
+        if Rails.env.production?
+          @@tipit_logger ||= Le.new('41653893-0a84-42ab-8b87-10453425b5f4')
+        else
+          @@tipit_logger ||= create_logger
+        end
       end
 
       def create_logger

@@ -25,7 +25,11 @@ module TipitExtensions
       attr_accessor :bounced_delivery
 
       def received_mail_logger
-        @@tipit_logger ||= create_logger
+        if Rails.env.production?
+          @@tipit_logger ||= Le.new('41653893-0a84-42ab-8b87-10453425b5f4')
+        else
+          @@tipit_logger ||= create_logger
+        end
       end
 
       def create_logger
@@ -38,8 +42,7 @@ module TipitExtensions
       end
 
       def get_email_client_type(email)
-        #EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
-        'generic'
+        EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
       end
 
       def receive_with_tipit_patch(email)

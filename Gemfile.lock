@@ -33,6 +33,7 @@ GEM
     gravatarify (3.0.0)
     i18n (0.4.2)
     json (1.7.7)
+    le (2.3.9)
     liquid (2.3.0)
     mail (2.2.7)
       activesupport (>= 2.3.6)
@@ -99,6 +100,7 @@ DEPENDENCIES
   i18n (~> 0.4.2)
   jruby-openssl
   json (~> 1.7.7)
+  le
   liquid (~> 2.3.0)
   mail
   mime-types
