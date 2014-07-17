@@ -33,6 +33,19 @@ module EnhancedIncomingMail
       @email.to_s
     end
 
+
+    def client_app
+      self.class.to_s.gsub("EnhancedIncomingMail::","")
+    end
+
+    def from
+      if @email.from
+        return @email.from[0]
+      else
+         return 'unidentified'
+      end
+    end
+
   # -----------------------------------------------------------------------------------------------------------------------------------------------
   # normalize ChiliProject supported HTML tags
   # -----------------------------------------------------------------------------------------------------------------------------------------------

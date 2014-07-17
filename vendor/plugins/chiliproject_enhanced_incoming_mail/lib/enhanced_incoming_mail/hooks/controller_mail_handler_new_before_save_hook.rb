@@ -30,7 +30,9 @@ module EnhancedIncomingMail
             received_mail_logger.info('Incoming email, starting normalization process')
 
             normalized_mail = MailNormalizatorFactory.create_mail_normalized(context[:params][:email])
-            
+
+            MailRecord::create_from(normalized_mail)
+
             # remove text plain part if HTML part available
             received_mail_logger.debug('Normalization process: 1. remove_non_html.')
             normalized_mail.remove_nonhtml_text!
