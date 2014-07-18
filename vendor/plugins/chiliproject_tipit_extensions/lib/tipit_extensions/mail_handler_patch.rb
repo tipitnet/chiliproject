@@ -25,8 +25,8 @@ module TipitExtensions
       attr_accessor :bounced_delivery
 
       def received_mail_logger
-        if Rails.env.production?
-          @@tipit_logger ||= Le.new('41653893-0a84-42ab-8b87-10453425b5f4')
+        if Rails.env.production? && ENV['LOG_ENTRIES']
+          @@tipit_logger ||= Le.new(ENV['LOG_ENTRIES'])
         else
           @@tipit_logger ||= create_logger
         end
