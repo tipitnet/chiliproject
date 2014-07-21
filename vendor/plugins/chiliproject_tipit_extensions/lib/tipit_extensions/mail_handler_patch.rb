@@ -25,7 +25,11 @@ module TipitExtensions
       attr_accessor :bounced_delivery
 
       def received_mail_logger
-        @@tipit_logger ||= create_logger
+        if Rails.env.production? && ENV['LOG_ENTRIES']
+          @@tipit_logger ||= Le.new(ENV['LOG_ENTRIES'])
+        else
+          @@tipit_logger ||= create_logger
+        end
       end
 
       def create_logger
@@ -38,8 +42,7 @@ module TipitExtensions
       end
 
       def get_email_client_type(email)
-        #EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
-        'generic'
+        EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
       end
 
       def receive_with_tipit_patch(email)
@@ -55,7 +58,7 @@ module TipitExtensions
 
           result = true
 
-          received_mail_logger.info "Email received processing start: #{email.from.to_s}, #{email.subject}"
+          received_mail_logger.info "Email received processing start: #{email.from.to_s}, subject: #{email.subject}"
 
           received_mail_logger.debug "Email client detection start"
           user_agent = get_email_client_type(email)
@@ -110,7 +113,7 @@ module TipitExtensions
         received_mail_logger.debug 'Entering receive_issue_with_tipit_patch'
         project = target_project
 
-        received_mail_logger.debug "preliminar target_project: #{project}"
+        #received_mail_logger.debug "preliminar target_project: #{project}"
         
         if project.identifier == 'undefined-project'
 
@@ -118,6 +121,8 @@ module TipitExtensions
           if (project.nil?)
             project = Project.find_by_identifier('inbox')
           end
+
+          received_mail_logger.debug "target_project: #{project.identifier}"
 
         end
 
@@ -169,6 +174,10 @@ module TipitExtensions
         received_mail_logger.debug "Entering add_default_watchers"
         default_watchers = issue.project.default_watchers
         received_mail_logger.debug "Default watchert to add [#{default_watchers}]"
+        if default_watchers.nil?
+          received_mail_logger.debug "Exiting add_default_watchers"
+          return
+        end
         default_watchers_list = default_watchers.split(',')
         default_watchers_list.each do | watcher_id |
           watcher = User.find(watcher_id)

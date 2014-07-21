@@ -3,7 +3,11 @@ module EnhancedIncomingMail
     class ControllerMailHandlerNewBeforeSaveHook < Redmine::Hook::ViewListener
 
       def received_mail_logger
-        @@tipit_logger ||= create_logger
+        if Rails.env.production? && ENV['LOG_ENTRIES']
+          @@tipit_logger ||= Le.new(ENV['LOG_ENTRIES'])
+        else
+          @@tipit_logger ||= create_logger
+        end
       end
 
       def create_logger
@@ -26,7 +30,9 @@ module EnhancedIncomingMail
             received_mail_logger.info('Incoming email, starting normalization process')
 
             normalized_mail = MailNormalizatorFactory.create_mail_normalized(context[:params][:email])
-            
+
+            MailRecord::create_from(normalized_mail)
+
             # remove text plain part if HTML part available
             received_mail_logger.debug('Normalization process: 1. remove_non_html.')
             normalized_mail.remove_nonhtml_text!
