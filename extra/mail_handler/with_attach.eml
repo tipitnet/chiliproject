@@ -1,0 +1,42 @@
+MIME-Version: 1.0
+Received: by 10.70.16.99 with HTTP; Wed, 16 Jul 2014 04:39:12 -0700 (PDT)
+X-Originating-IP: [201.231.112.26]
+Date: Wed, 16 Jul 2014 08:39:12 -0300
+Delivered-To: tipit@nicopaez.com.ar
+Message-ID: <CADwxdu8KhBAnjqGxUYo_OE6cBnORwkgZjRu0x8ju1WCZdfU0rQ@mail.gmail.com>
+Subject: test attach 3
+From: "Nicolas Paez (tipit)" <nicopaez@tipit.net>
+To: chiliproject@chilitest.tipit.net
+Content-Type: multipart/mixed; boundary=089e01633906259bf704fe4df9a0
+
+--089e01633906259bf704fe4df9a0
+Content-Type: multipart/alternative; boundary=089e01633906259be404fe4df99e
+
+--089e01633906259be404fe4df99e
+Content-Type: text/plain; charset=ISO-8859-1
+
+txt
+
+--089e01633906259be404fe4df99e
+Content-Type: text/html; charset=ISO-8859-1
+
+<div dir="ltr"><div class="gmail_default" style="font-family:arial,helvetica,sans-serif">txt</div></div>
+
+--089e01633906259be404fe4df99e--
+--089e01633906259bf704fe4df9a0
+Content-Type: text/plain; charset=US-ASCII; name="TWC_Tag_Text.txt"
+Content-Disposition: attachment; filename="TWC_Tag_Text.txt"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_hxokt4mz0
+
+PCEtLSBCZWdpbiBjb21TY29yZSBUYWcgLS0+DQo8c2NyaXB0Pg0KICB2YXIgX2NvbXNjb3JlID0g
+X2NvbXNjb3JlIHx8IFtdOw0KICBfY29tc2NvcmUucHVzaCh7IGMxOiAiMiIsIGMyOiAiNjAzNjE4
+MyIgfSk7DQogIChmdW5jdGlvbigpIHsNCiAgICB2YXIgcyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1l
+bnQoInNjcmlwdCIpLCBlbCA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCJzY3JpcHQi
+KVswXTsgcy5hc3luYyA9IHRydWU7DQogICAgcy5zcmMgPSAoZG9jdW1lbnQubG9jYXRpb24ucHJv
+dG9jb2wgPT0gImh0dHBzOiIgPyAiaHR0cHM6Ly9zYiIgOiAiaHR0cDovL2IiKSArICIuc2NvcmVj
+YXJkcmVzZWFyY2guY29tL2JlYWNvbi5qcyI7DQogICAgZWwucGFyZW50Tm9kZS5pbnNlcnRCZWZv
+cmUocywgZWwpOw0KICB9KSgpOw0KPC9zY3JpcHQ+DQo8bm9zY3JpcHQ+DQogIDxpbWcgc3JjPSJo
+dHRwOi8vYi5zY29yZWNhcmRyZXNlYXJjaC5jb20vcD9jMT0yJmMyPTYwMzYxODMmY3Y9Mi4wJmNq
+PTEiIC8+DQo8L25vc2NyaXB0Pg0KPCEtLSBFbmQgY29tU2NvcmUgVGFnIC0tPg==
+--089e01633906259bf704fe4df9a0--
