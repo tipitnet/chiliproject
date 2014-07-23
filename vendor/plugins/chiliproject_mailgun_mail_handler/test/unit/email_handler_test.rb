@@ -5,7 +5,6 @@ require_relative '../../app/models/email_handler'
 class MailHandlerTest < ActiveSupport::TestCase
 
   def setup
-    ENV['MAILGUN_API_KEY'] = 'somekey'
     Project.create!(:name => 'inbox', :identifier => 'inbox').set_parent!(nil)
   end
 
@@ -49,6 +48,7 @@ class MailHandlerTest < ActiveSupport::TestCase
       mock_request = Object.new
       mock_request.stubs(:params).returns(default_params)
       issue_count_before = Issue.count
+      EmailHandler.setup :api_key => 'a_key'
 
       result = EmailHandler.receive(mock_request)
 
@@ -65,6 +65,7 @@ class MailHandlerTest < ActiveSupport::TestCase
     mock_request.stubs(:params).returns(params)
     issue_count_before = Issue.count
     Mailer.any_instance.stubs(:deliver_issue_reject_to)
+    EmailHandler.setup :api_key => 'a_key'
 
     result = EmailHandler.receive(mock_request)
 

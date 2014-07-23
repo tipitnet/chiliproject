@@ -3,7 +3,7 @@ require 'incoming'
 class EmailHandler < Incoming::Strategies::Mailgun
   include ActionView::Helpers::SanitizeHelper
   include Redmine::I18n
-  setup :api_key => 'xxxx', :stripped => true
+  setup :stripped => true
 
   class UnauthorizedAction < StandardError; end
   class MissingInformation < StandardError; end
