@@ -1,77 +1,58 @@
-#-- encoding: UTF-8
-#-- copyright
-# ChiliProject is a project management system.
-#
-# Copyright (C) 2010-2013 the ChiliProject Team
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# See doc/COPYRIGHT.rdoc for more details.
-#++
+require 'incoming'
 
-class MailHandler < ActionMailer::Base
+class EmailHandler < Incoming::Strategies::Mailgun
   include ActionView::Helpers::SanitizeHelper
   include Redmine::I18n
+  setup :api_key => 'xxxx', :stripped => true
 
   class UnauthorizedAction < StandardError; end
   class MissingInformation < StandardError; end
 
   attr_reader :email, :user
 
-  def self.receive(email, options={})
-    @@handler_options = options.dup
-
-    @@handler_options[:issue] ||= {}
-
-    @@handler_options[:allow_override] = @@handler_options[:allow_override].split(',').collect(&:strip) if @@handler_options[:allow_override].is_a?(String)
-    @@handler_options[:allow_override] ||= []
-    # Project needs to be overridable if not specified
-    @@handler_options[:allow_override] << 'project' unless @@handler_options[:issue].has_key?(:project)
-    # Status overridable by default
-    @@handler_options[:allow_override] << 'status' unless @@handler_options[:issue].has_key?(:status)
-
-    @@handler_options[:no_permission_check] = (@@handler_options[:no_permission_check].to_s == '1' ? true : false)
-    super email
+  def create_logger
+    tipit_logger = Logger.new("#{Rails.root}/log/received_emails.log", 'daily')
+    tipit_logger.level = Logger::DEBUG
+    tipit_logger.formatter = proc do |severity, datetime, progname, msg|
+      "#{severity} [#{datetime}] - #{progname}: #{msg}\n"
+    end
+    tipit_logger
   end
 
-  # Processes incoming emails
-  # Returns the created object (eg. an issue, a message) or false
+  def received_mail_logger
+    if Rails.env.production? && ENV['LOG_ENTRIES']
+      @@tipit_logger ||= Le.new(ENV['LOG_ENTRIES'])
+    else
+      @@tipit_logger ||= create_logger
+    end
+  end
+
+  def authenticate
+    Rails.env.production? ? super : true
+  end
+
+  def get_email_client_type(email)
+    EnhancedIncomingMail::MailNormalizatorFactory.get_email_client_type(email)
+  end
+
   def receive(email)
+    if (!valid_recipients(email))
+      return false
+    end
     @email = email
     sender_email = email.from.to_a.first.to_s.strip
     # Ignore emails received from the application emission address to avoid hell cycles
     if sender_email.downcase == Setting.mail_from.to_s.strip.downcase
-      logger.info  "MailHandler: ignoring email from emission address [#{sender_email}]" if logger && logger.info
-      return false
+      received_mail_logger.info  "MailHandler: ignoring email from emission address [#{sender_email}]"
+      return true
     end
     @user = User.find_by_mail(sender_email) if sender_email.present?
     if @user && !@user.active?
-      logger.info  "MailHandler: ignoring email from non-active user [#{@user.login}]" if logger && logger.info
+      received_mail_logger.info  "MailHandler: ignoring email from non-active user [#{@user.login}]"
       return false
     end
-    if @user.nil?
-      # Email was submitted by an unknown user
-      case @@handler_options[:unknown_user]
-      when 'accept'
-        @user = User.anonymous
-      when 'create'
-        @user = MailHandler.create_user_from_email(email)
-        if @user
-          logger.info "MailHandler: [#{@user.login}] account created" if logger && logger.info
-          Mailer.deliver_account_information(@user, @user.password)
-        else
-          logger.error "MailHandler: could not create account for [#{sender_email}]" if logger && logger.error
-          return false
-        end
-      else
-        # Default behaviour, emails from unknown users are ignored
-        logger.info  "MailHandler: ignoring email from unknown user [#{sender_email}]" if logger && logger.info
-        Mailer.deliver_mail_handler_unauthorized_action(user, email.subject.to_s, :to => sender_email) if Setting.mail_handler_confirmation_on_failure
-        return false
-      end
+    if @user.nil? # Email was submitted by an unknown user
+      @user = User.anonymous
     end
     User.current = @user
     dispatch
@@ -82,6 +63,7 @@ class MailHandler < ActionMailer::Base
   MESSAGE_ID_RE = %r{^<chiliproject\.([a-z0-9_]+)\-(\d+)\.\d+@}
   ISSUE_REPLY_SUBJECT_RE = %r{\[[^\]]*#(\d+)\]}
   MESSAGE_REPLY_SUBJECT_RE = %r{\[[^\]]*msg(\d+)\]}
+  ALLOW_OVERRIDE = "project,tracker,category,priority,status,sub-status"
 
   def dispatch
     headers = [email.in_reply_to, email.references].flatten.compact
@@ -102,15 +84,15 @@ class MailHandler < ActionMailer::Base
     end
   rescue ActiveRecord::RecordInvalid => e
     # TODO: send a email to the user
-    logger.error e.message if logger
+    received_mail_logger.error e.message
     Mailer.deliver_mail_handler_missing_information(user, email.subject.to_s, e.message) if Setting.mail_handler_confirmation_on_failure
     false
   rescue MissingInformation => e
-    logger.error "MailHandler: missing information from #{user}: #{e.message}" if logger
+    received_mail_logger.error "MailHandler: missing information from #{user}: #{e.message}"
     Mailer.deliver_mail_handler_missing_information(user, email.subject.to_s, e.message) if Setting.mail_handler_confirmation_on_failure
     false
   rescue UnauthorizedAction => e
-    logger.error "MailHandler: unauthorized attempt from #{user}" if logger
+    received_mail_logger.error "MailHandler: unauthorized attempt from #{user}"
     Mailer.deliver_mail_handler_unauthorized_action(user, email.subject.to_s) if Setting.mail_handler_confirmation_on_failure
     false
   end
@@ -125,11 +107,14 @@ class MailHandler < ActionMailer::Base
 
   # Creates a new issue
   def receive_issue
-    project = target_project
-    # check permission
-    unless @@handler_options[:no_permission_check]
-      raise UnauthorizedAction unless user.allowed_to?(:add_issues, project)
+    received_mail_logger.debug 'Entering receive_issue'
+
+    project = user.default_project
+    if (project.nil?)
+      project = Project.find_by_identifier('inbox')
     end
+
+    received_mail_logger.debug "target_project: #{project.identifier}"
 
     issue = Issue.new(:author => user, :project => project)
     issue.safe_attributes = issue_attributes_from_keywords(issue)
@@ -141,12 +126,50 @@ class MailHandler < ActionMailer::Base
     issue.description = cleaned_up_text_body
 
     # add To and Cc as watchers before saving so the watchers can reply to Redmine
+    received_mail_logger.debug "Adding watchers start"
     add_watchers(issue)
+    add_default_watchers(issue)
     issue.save!
+    if user.anonymous?
+      email_watcher_address = email.from.to_s
+      watcher = Watcher.new()
+      watcher.email_watchers = []
+      watcher.email_watchers << email_watcher_address
+      watcher.watchable = issue
+      watcher.user = EmailWatcherUser.default
+      watcher.save
+      Mailer.deliver_issue_add(issue,email_watcher_address)
+    end
+    received_mail_logger.debug "Adding watchers completed"
+    received_mail_logger.debug "Adding attachments start"
     add_attachments(issue)
-    logger.info "MailHandler: issue ##{issue.id} created by #{user}" if logger && logger.info
-    Mailer.deliver_mail_handler_confirmation(issue, user, issue.subject) if Setting.mail_handler_confirmation_on_success
+    received_mail_logger.debug "Adding attachments completed"
+
+    received_mail_logger.info "MailHandler: issue ##{issue.id} created by #{user}"
+    received_mail_logger.info "Email received processing completed: Issue ##{issue.id} created by #{user} \r"
+
+    if !user.anonymous?
+      Mailer.deliver_mail_handler_confirmation(issue, user, issue.subject) if Setting.mail_handler_confirmation_on_success?
+    end
+
     issue
+
+  end
+
+  def add_default_watchers(issue)
+    received_mail_logger.debug "Entering add_default_watchers"
+    default_watchers = issue.project.default_watchers
+    received_mail_logger.debug "Default watchert to add [#{default_watchers}]"
+    if default_watchers.nil?
+      received_mail_logger.debug "Exiting add_default_watchers"
+      return
+    end
+    default_watchers_list = default_watchers.split(',')
+    default_watchers_list.each do | watcher_id |
+      watcher = User.find(watcher_id)
+      issue.add_watcher(watcher) unless watcher.nil?
+    end
+    received_mail_logger.debug "Exiting add_default_watchers"
   end
 
   # Adds a note to an existing issue
@@ -154,19 +177,19 @@ class MailHandler < ActionMailer::Base
     issue = Issue.find_by_id(issue_id)
     return unless issue
     # check permission
-    unless @@handler_options[:no_permission_check]
-      raise UnauthorizedAction unless user.allowed_to?(:add_issue_notes, issue.project) || user.allowed_to?(:edit_issues, issue.project)
-    end
+    #unless @@handler_options[:no_permission_check]
+    #  raise UnauthorizedAction unless user.allowed_to?(:add_issue_notes, issue.project) || user.allowed_to?(:edit_issues, issue.project)
+    #end
 
     # ignore CLI-supplied defaults for new issues
-    @@handler_options[:issue].clear
+    #@@handler_options[:issue].clear
 
     issue.safe_attributes = issue_attributes_from_keywords(issue)
     issue.safe_attributes = {'custom_field_values' => custom_field_values_from_keywords(issue)}
     issue.init_journal(user, cleaned_up_text_body)
     add_attachments(issue)
     issue.save!
-    logger.info "MailHandler: issue ##{issue.id} updated by #{user}" if logger && logger.info
+    received_mail_logger.info "MailHandler: issue ##{issue.id} updated by #{user}"
     Mailer.deliver_mail_handler_confirmation(issue.last_journal, user, email.subject) if Setting.mail_handler_confirmation_on_success
     issue.last_journal
   end
@@ -185,9 +208,9 @@ class MailHandler < ActionMailer::Base
     if message
       message = message.root
 
-      unless @@handler_options[:no_permission_check]
-        raise UnauthorizedAction unless user.allowed_to?(:add_messages, message.project)
-      end
+      #unless @@handler_options[:no_permission_check]
+      #  raise UnauthorizedAction unless user.allowed_to?(:add_messages, message.project)
+      #end
 
       if !message.locked?
         reply = Message.new(:subject => email.subject.gsub(%r{^.*msg\d+\]}, '').strip,
@@ -199,7 +222,7 @@ class MailHandler < ActionMailer::Base
         Mailer.deliver_mail_handler_confirmation(message, user, reply.subject) if Setting.mail_handler_confirmation_on_success
         reply
       else
-        logger.info "MailHandler: ignoring reply from [#{sender_email}] to a locked topic" if logger && logger.info
+        received_mail_logger.info "MailHandler: ignoring reply from [#{sender_email}] to a locked topic"
       end
     end
   end
@@ -233,10 +256,8 @@ class MailHandler < ActionMailer::Base
       @keywords[attr]
     else
       @keywords[attr] = begin
-        if (options[:override] || @@handler_options[:allow_override].include?(attr.to_s)) && (v = extract_keyword!(plain_text_body, attr))
+        if (ALLOW_OVERRIDE.include?(attr.to_s)) && (v = extract_keyword!(plain_text_body, attr, options[:format]))
           v
-        elsif !@@handler_options[:issue][attr].blank?
-          @@handler_options[:issue][attr]
         end
       end
     end
@@ -272,16 +293,16 @@ class MailHandler < ActionMailer::Base
     assigned_to = nil if assigned_to && !issue.assignable_users.include?(assigned_to)
 
     attrs = {
-      'tracker_id' => (k = get_keyword(:tracker)) && issue.project.trackers.find_by_name(k).try(:id),
-      'status_id' =>  (k = get_keyword(:status)) && IssueStatus.find_by_name(k).try(:id),
-      'priority_id' => (k = get_keyword(:priority)) && IssuePriority.find_by_name(k).try(:id),
-      'category_id' => (k = get_keyword(:category)) && issue.project.issue_categories.find_by_name(k).try(:id),
-      'assigned_to_id' => assigned_to.try(:id),
-      'fixed_version_id' => (k = get_keyword(:fixed_version, :override => true)) && issue.project.shared_versions.find_by_name(k).try(:id),
-      'start_date' => get_keyword(:start_date, :override => true, :format => '\d{4}-\d{2}-\d{2}'),
-      'due_date' => get_keyword(:due_date, :override => true, :format => '\d{4}-\d{2}-\d{2}'),
-      'estimated_hours' => get_keyword(:estimated_hours, :override => true),
-      'done_ratio' => get_keyword(:done_ratio, :override => true, :format => '(\d|10)?0')
+        'tracker_id' => (k = get_keyword(:tracker)) && issue.project.trackers.find_by_name(k).try(:id),
+        'status_id' =>  (k = get_keyword(:status)) && IssueStatus.find_by_name(k).try(:id),
+        'priority_id' => (k = get_keyword(:priority)) && IssuePriority.find_by_name(k).try(:id),
+        'category_id' => (k = get_keyword(:category)) && issue.project.issue_categories.find_by_name(k).try(:id),
+        'assigned_to_id' => assigned_to.try(:id),
+        'fixed_version_id' => (k = get_keyword(:fixed_version, :override => true)) && issue.project.shared_versions.find_by_name(k).try(:id),
+        'start_date' => get_keyword(:start_date, :override => true, :format => '\d{4}-\d{2}-\d{2}'),
+        'due_date' => get_keyword(:due_date, :override => true, :format => '\d{4}-\d{2}-\d{2}'),
+        'estimated_hours' => get_keyword(:estimated_hours, :override => true),
+        'done_ratio' => get_keyword(:done_ratio, :override => true, :format => '(\d|10)?0')
     }.delete_if {|k, v| v.blank? }
 
     if issue.new_record? && attrs['tracker_id'].nil?
@@ -369,5 +390,29 @@ class MailHandler < ActionMailer::Base
       user ||= User.find_by_firstname_and_lastname(firstname, lastname)
     end
     user
+  end
+
+  def valid_recipients(email)
+    result = true
+    if email.to.size > 1 || !email.cc.nil?
+      Mailer.deliver_issue_reject_to(email.from, email.subject)
+      result = false
+    end
+    result
+  end
+
+  def remove_issue_watcher(issue, user_email)
+    user = User.find_by_mail(user_email)
+    if user.nil?
+      watcher = Watcher.first(:conditions => {
+          :user_id => EmailWatcherUser.default.id,
+          :watchable_type => 'Issue',
+          :watchable_id => issue.id
+      })
+      watcher.email_watchers.delete(user_email)
+      watcher.save
+    else
+      issue.remove_watcher(user)
+    end
   end
 end
