@@ -5,6 +5,7 @@ require_relative '../../app/models/email_handler'
 class MailHandlerTest < ActiveSupport::TestCase
 
   def setup
+    ProjectDetectionStrategy.global_inbox = 'inbox'
     Project.create!(:name => 'inbox', :identifier => 'inbox').set_parent!(nil)
   end
 
@@ -72,6 +73,7 @@ class MailHandlerTest < ActiveSupport::TestCase
     assert !result
     assert_equal(issue_count_before, Issue.count)
   end
+
 end
 
 

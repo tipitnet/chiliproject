@@ -109,9 +109,10 @@ class EmailHandler < Incoming::Strategies::Mailgun
   def receive_issue
     received_mail_logger.debug 'Entering receive_issue'
 
-    project = user.default_project
-    if (project.nil?)
-      project = Project.find_by_identifier('inbox')
+    detected_project_id = ProjectDetectionStrategy.new.detect_project(email.to.first, user)
+    project = Project.find_by_identifier(detected_project_id)
+    if project.nil?
+      project = Project.find_by_identifier(ProjectDetectionStrategy.global_inbox)
     end
 
     received_mail_logger.debug "target_project: #{project.identifier}"

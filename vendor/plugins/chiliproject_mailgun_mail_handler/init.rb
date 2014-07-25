@@ -9,3 +9,4 @@ Redmine::Plugin.register :chiliproject_mailgun_mail_handler do
 end
 
 EmailHandler.setup :api_key => ENV['MAILGUN_API_KEY']
+ProjectDetectionStrategy.global_inbox = ENV['GLOBAL_INBOX_PROJECT']
