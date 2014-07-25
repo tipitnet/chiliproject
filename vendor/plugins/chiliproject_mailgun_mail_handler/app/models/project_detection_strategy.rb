@@ -14,7 +14,7 @@ class ProjectDetectionStrategy
 		if sender_parts.size > 1
 			return sender_parts[1]
 		else
-			return user.anonymous? ? @@global_inbox : user.default_project_id
+			return user.anonymous? ? @@global_inbox : user.default_project.identifier
 		end
 	end
 
