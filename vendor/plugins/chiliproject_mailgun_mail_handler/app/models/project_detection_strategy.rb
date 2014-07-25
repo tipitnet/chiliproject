@@ -11,10 +11,10 @@ class ProjectDetectionStrategy
 	def detect_project (email_address, user)
 		sender = email_address.split('@')[0]
 		sender_parts = sender.split('+')
-		if (sender_parts.size > 1)
+		if sender_parts.size > 1
 			return sender_parts[1]
 		else
-			return user.anonymous? ? @@global_inbox : user.default_project
+			return user.anonymous? ? @@global_inbox : user.default_project_id
 		end
 	end
 

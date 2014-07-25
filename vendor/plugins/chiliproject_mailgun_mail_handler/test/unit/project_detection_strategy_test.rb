@@ -1,5 +1,3 @@
-#require 'test/unit'
-#require 'mocha'
 require_relative '../test_helper'
 require_relative '../../app/models/project_detection_strategy'
 
@@ -13,7 +11,7 @@ class ProjectDetectionStrategyTest < ActiveSupport::TestCase
   	@mock_user = Object.new
     @mock_user.stubs(:anonymous?).returns(false)
     @default_project = 'project1'
-    @mock_user.stubs(:default_project).returns(@default_project)
+    @mock_user.stubs(:default_project_id).returns(@default_project)
 	end
 
   def test_return_user_default_project_when_no_project_specified
@@ -35,7 +33,7 @@ class ProjectDetectionStrategyTest < ActiveSupport::TestCase
   def test_return_global_inbox_when_anonymous_user_and_no_project_specfied
     email_address = "chiliproject@test.com"
     @mock_user.stubs(:anonymous?).returns(true)
-    @mock_user.stubs(:default_project).returns(nil)
+    @mock_user.stubs(:default_project_id).returns(nil)
 
     detected_project = ProjectDetectionStrategy.new.detect_project(email_address, @mock_user)
 

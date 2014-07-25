@@ -8,5 +8,9 @@ Redmine::Plugin.register :chiliproject_mailgun_mail_handler do
   url 'http://www.tipit.net/about'
 end
 
-EmailHandler.setup :api_key => ENV['MAILGUN_API_KEY']
+if Rails.env.production?
+  EmailHandler.setup :api_key => ENV['MAILGUN_API_KEY']
+else
+  EmailHandler.setup :api_key => 'xx'
+end
 ProjectDetectionStrategy.global_inbox = ENV['GLOBAL_INBOX_PROJECT']
