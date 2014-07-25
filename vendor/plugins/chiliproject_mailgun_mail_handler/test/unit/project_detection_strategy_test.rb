@@ -1,8 +1,9 @@
-require 'test/unit'
-require 'mocha'
+#require 'test/unit'
+#require 'mocha'
+require_relative '../test_helper'
 require_relative '../../app/models/project_detection_strategy'
 
-class ProjectDetectionStrategyTest < Test::Unit::TestCase
+class ProjectDetectionStrategyTest < ActiveSupport::TestCase
 
 	class Project 
 	end
