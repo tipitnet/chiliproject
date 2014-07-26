@@ -29,7 +29,7 @@ class Attachment < ActiveRecord::Base
 
   acts_as_journalized :event_title => :filename,
         :event_url => (Proc.new do |o|
-          { :controller => 'attachments', :action => 'download',
+          { :controllers => 'attachments', :action => 'download',
             :id => o.journaled_id, :filename => o.filename }
         end),
         :activity_type => 'files',
@@ -90,16 +90,11 @@ class Attachment < ActiveRecord::Base
       logger.debug("saving '#{self.diskfile}'")
       md5 = Digest::MD5.new
       File.open(diskfile, "wb") do |f|
-        content = @temp_file.read
-        f.write(content)
-        md5.update(content)
-=begin
         buffer = ""
         while (buffer = @temp_file.read(8192))
           f.write(buffer)
           md5.update(buffer)
         end
-=end
       end
       self.digest = md5.hexdigest
     end
