@@ -6,7 +6,7 @@ bundle exec rake test:clockability:unit
 bundle exec rake test:clockability:functional
 bundle exec rake test:chiliproject_mailgun_mail_handler:unit
 
-
+echo "Deleting plugins to not affect core test"
 
 rm -rf vendor/plugins/chiliproject_tipit_extensions # Remove this plugin because it modifies default behaviour and brake tests
 rm -rf vendor/plugins/chiliproject_email_watchers # Remove this plugin because it modifies default behaviour and brake tests
