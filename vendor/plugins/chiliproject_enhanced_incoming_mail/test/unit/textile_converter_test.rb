@@ -317,6 +317,14 @@ Heading</h1>'
 test</span>"
   end
 
+  def test_image
+    expected = "!image1.png!"
+    image_map = { "<ii_1477855169c39137>" => 'image1.png' }
+    actual = "<img src=\"cid:ii_1477855169c39137\" />"
+    converter = EnhancedIncomingMail::TextileConverter.new(actual, image_map)
+    assert_equal expected, converter.to_textile
+  end
+
   private
 
   def assert_textile(expected, actual)

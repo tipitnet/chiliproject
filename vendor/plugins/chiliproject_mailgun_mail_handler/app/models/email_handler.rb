@@ -10,6 +10,19 @@ class EmailHandler < Incoming::Strategies::Mailgun
 
   attr_reader :email, :user
 
+  def initialize(request)
+    @content_id_map = request.params['content-id-map']
+    if @content_id_map
+      @content_id_map = JSON.parse(@content_id_map)
+      @content_id_map.each_key do | key |
+        attach_name = @content_id_map[key]
+        file_name = request.params[attach_name].original_path
+        @content_id_map[key] = file_name
+      end
+    end
+    super
+  end
+
   def create_logger
     tipit_logger = Logger.new("#{Rails.root}/log/received_emails.log", 'daily')
     tipit_logger.level = Logger::DEBUG
@@ -349,7 +362,7 @@ class EmailHandler < Incoming::Strategies::Mailgun
     if (@email.html_part.nil?)
       return cleanup_body(plain_text_body)
     else
-      converter = EnhancedIncomingMail::TextileConverter.new(@email.html_part.body.to_s)
+      converter = EnhancedIncomingMail::TextileConverter.new(@email.html_part.body.to_s, @content_id_map)
       return converter.to_textile
     end
   end

@@ -26,7 +26,8 @@ module EnhancedIncomingMail
 
     private
 
-    def initialize(html)
+    def initialize(html, image_map=nil)
+      @image_map = image_map
       prepare_html_source(html)
       create_document(html)
 
@@ -39,6 +40,18 @@ module EnhancedIncomingMail
       process_brs
       process_spans
       process_html_spaces
+      process_images
+    end
+
+    def process_images
+      return if @image_map.nil?
+      @doc.css("img").each do |node|
+        image_cid = node['src']
+        image_cid.gsub!(/cid:/,'')
+        image_name = @image_map["<#{image_cid}>"]
+        node.replace("!#{image_name}!")
+      end
+
     end
 
     def prepare_html_source(html)
