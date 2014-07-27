@@ -141,8 +141,8 @@ class EmailHandler < Incoming::Strategies::Mailgun
 
     # add To and Cc as watchers before saving so the watchers can reply to Redmine
     received_mail_logger.debug "Adding watchers start"
-    #add_watchers(issue)
-    #add_default_watchers(issue)
+    add_watchers(issue)
+    add_default_watchers(issue)
     issue.save!
     if user.anonymous?
       email_watcher_address = email.from.to_s
