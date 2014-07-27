@@ -345,7 +345,13 @@ class EmailHandler < Incoming::Strategies::Mailgun
   end
 
   def cleaned_up_text_body
-    cleanup_body(plain_text_body)
+    #cleanup_body(plain_text_body)
+    if (@email.html_part.nil?)
+      return cleanup_body(plain_text_body)
+    else
+      converter = EnhancedIncomingMail::TextileConverter.new(@email.html_part.body.to_s)
+      return converter.to_textile
+    end
   end
 
   def self.full_sanitizer

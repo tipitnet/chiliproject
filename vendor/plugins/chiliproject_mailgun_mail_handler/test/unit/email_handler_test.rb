@@ -55,7 +55,11 @@ class MailHandlerTest < ActiveSupport::TestCase
 
       assert result
       assert_equal(issue_count_before + 1, Issue.count)
-      assert_equal(@subject, Issue.last.subject)
+      created_issue = Issue.last
+      assert_equal(@subject, created_issue.subject)
+      assert_equal('*We should do that again sometime.*', created_issue.description)
+
+
     end
 
   def test_email_with_several_receipts_not_creates_an_issue_and_deliver_notification
