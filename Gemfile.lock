@@ -101,6 +101,7 @@ DEPENDENCIES
   json (~> 1.7.7)
   le
   liquid (~> 2.3.0)
+  mime-types
   mocha (= 0.12.1)
   mysql2 (~> 0.2.7)
   net-ldap (~> 0.3.1)
