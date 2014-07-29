@@ -70,9 +70,18 @@ module EnhancedIncomingMail
 
     def process_paragraphs
       # workaround for nested divs.
-      @doc.css('div').sort { |a, b| a.children.size <=> b.children.size }.each do |node|
+      @doc.css('div').each do |x|
+         x.attributes.each_key { |k| x.remove_attribute(k)}
+      end
+      sorted = @doc.css('div').sort { |a, b| a.children.size <=> b.children.size }
+      sorted.each do |node|
         text = node.children.to_s
+        node.replace("#{text.strip}\n")
+      end
 
+      sorted = @doc.css('div').sort { |a, b| a.children.size <=> b.children.size }
+      sorted.each do |node|
+        text = node.children.to_s
         node.replace("#{text.strip}\n")
       end
 
