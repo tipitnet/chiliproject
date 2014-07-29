@@ -1,3 +1,0 @@
-gem 'mail'
-gem 'nokogiri'
-gem 'mime-types'
