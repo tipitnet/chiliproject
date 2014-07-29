@@ -32,10 +32,6 @@ Dispatcher.to_prepare :chiliproject_tipit_extensions do
     WatchersController.send(:include, TipitExtensions::WatchersControllerPatch)
   end
 
-  require_dependency 'mailer'
-  unless Mailer.included_modules.include? TipitExtensions::MailerPatch
-    Mailer.send(:include, TipitExtensions::MailerPatch)
-  end
 end
 
 Redmine::Plugin.register :chiliproject_tipit_extensions do
