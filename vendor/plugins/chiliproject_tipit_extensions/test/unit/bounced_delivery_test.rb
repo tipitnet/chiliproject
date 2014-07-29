@@ -5,6 +5,8 @@ module TipitExtensions
   class BouncedDeliveryTest <  ActiveSupport::TestCase
     include TipitExtensionHelper
 
+=begin
+ This is in progress to be migrated to other plugin
     def test_should_detect_final_recipient()
       email = TMail::Mail.parse(get_mail_sample :bounced_issue)
       bounced_delivery = BouncedDelivery.from_email(email)
@@ -18,7 +20,7 @@ module TipitExtensions
 
       assert_equal 1873, bounced_delivery.issue_id
     end
-
+=end
   end
 
 end
