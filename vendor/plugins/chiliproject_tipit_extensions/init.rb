@@ -32,11 +32,6 @@ Dispatcher.to_prepare :chiliproject_tipit_extensions do
     WatchersController.send(:include, TipitExtensions::WatchersControllerPatch)
   end
 
-  unless MailHandler.included_modules.include? TipitExtensions::MailHandlerPatch
-    MailHandler.send(:include, TipitExtensions::MailHandlerPatch)
-  end
-
-
   require_dependency 'mailer'
   unless Mailer.included_modules.include? TipitExtensions::MailerPatch
     Mailer.send(:include, TipitExtensions::MailerPatch)
