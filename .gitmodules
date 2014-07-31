@@ -1,6 +1,3 @@
 [submodule "vendor/plugins/chiliproject_etherpad"]
 	path = vendor/plugins/chiliproject_etherpad
 	url = https://github.com/tipitnet/chiliproject_etherpad_plugin.git
-[submodule "vendor/plugins/chiliproject_tipit_mail_handler"]
-	path = vendor/plugins/chiliproject_tipit_mail_handler
-	url = https://github.com/tipitnet/chiliproject_tipit_mail_handler_plugin.git
