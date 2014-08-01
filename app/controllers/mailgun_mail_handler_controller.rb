@@ -12,11 +12,14 @@
 # See doc/COPYRIGHT.rdoc for more details.
 #++
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Major.create(:name => 'Daley', :city => cities.first)
+class MailgunMailHandlerController < ActionController::Base
 
+  def create
+    if EmailReceiver.new.receive(request)
+      render :json => { :status => 'ok' }
+    else
+      render :json => { :status => 'rejected' }, :status => 403
+    end
+  end
+
+end

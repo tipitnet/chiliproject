@@ -259,4 +259,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'robots.txt', :controller => 'welcome', :action => 'robots'
   # Used for OpenID
   map.root :controller => 'account', :action => 'login'
+
+
+  map.connect 'mailgun', :controller => 'MailgunMailHandler', :action => 'create'
 end
