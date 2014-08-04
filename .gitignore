@@ -33,3 +33,4 @@ doc/app
 /.idea
 .rbx
 .DS_Store
+**/coverage
