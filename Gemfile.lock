@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/tipitnet/html2textile.git
+  revision: 129eb54bc67c65657cecc782aa4c186699bc89a7
+  specs:
+    html2textile (1.0.0.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,6 +101,7 @@ DEPENDENCIES
   edavis10-object_daddy
   etherpad-lite
   gravatarify (~> 3.0.0)
+  html2textile!
   i18n (~> 0.4.2)
   incoming
   jruby-openssl
