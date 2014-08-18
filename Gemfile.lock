@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/tipitnet/html2textile.git
-  revision: 5bd056c7bd1a27fb5d568ef8c21bb78b5dd5c21f
+  revision: 6d298ced2ad7e1b8d9372794bd1f13797ab476b6
   specs:
     html2textile (1.0.0.beta2)
 
