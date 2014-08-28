@@ -12,7 +12,7 @@ module ApplicationHelper
 
       if !href.start_with?("http") && !issue.nil?
         filename = href
-        attachments issue.attachments.sort_by(&:created_on).reverse
+        attachments = issue.attachments.sort_by(&:created_on).reverse
         # search for the picture in attachments
         if found = attachments.detect { |att| att.filename.downcase == filename }
           image_url = url_for :only_path => only_path, :controller => 'attachments', :action => 'download', :id => found
