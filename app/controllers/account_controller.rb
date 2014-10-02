@@ -121,6 +121,13 @@ class AccountController < ApplicationController
     redirect_to :action => 'login'
   end
 
+  def oauth_login
+    name = auth_hash.info.name.downcase
+    user = User.find_by_login(name)
+    successful_authentication(user)
+  end
+
+
   private
 
   def logout_user
@@ -152,6 +159,9 @@ class AccountController < ApplicationController
     end
   end
 
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 
   def open_id_authenticate(openid_url)
     authenticate_with_open_id(openid_url, :required => [:nickname, :fullname, :email], :return_to => signin_url) do |result, identity_url, registration|

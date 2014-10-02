@@ -15,6 +15,10 @@ gem "acts-as-taggable-on", "= 2.1.0"
 gem 'gravatarify', '~> 3.0.0'
 gem "tzinfo", "~> 0.3.31" # Fixes #903. Not required for Rails >= 3.2
 gem "le"
+#gem "omniauth-google-oauth2"
+gem 'omniauth'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
 
 group :test do
   gem 'shoulda', '~> 2.10.3'

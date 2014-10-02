@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/arunagw/omniauth-twitter.git
+  revision: 35275bab07e2ffdf11f95e02ab18991d2bec193d
+  specs:
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+
+GIT
   remote: https://github.com/tipitnet/html2textile.git
   revision: 6d298ced2ad7e1b8d9372794bd1f13797ab476b6
   specs:
@@ -37,6 +45,7 @@ GEM
     etherpad-lite (0.3.0)
       rest-client (>= 1.6)
     gravatarify (3.0.0)
+    hashie (3.3.1)
     i18n (0.4.2)
     incoming (0.1.8)
       mail (~> 2.4)
@@ -56,6 +65,13 @@ GEM
     net-ldap (0.3.1)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    oauth (0.4.7)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     rack (1.1.6)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -113,6 +129,8 @@ DEPENDENCIES
   mysql2 (~> 0.2.7)
   net-ldap (~> 0.3.1)
   nokogiri
+  omniauth
+  omniauth-twitter!
   rails (= 2.3.18)
   rdoc (>= 2.4.2)
   rest-client
