@@ -201,6 +201,7 @@ html > body #content {
   border-radius: 5px;
   display: block;
   padding: 10px;
+  min-height:120px;
 }
 
 input#openid_url {

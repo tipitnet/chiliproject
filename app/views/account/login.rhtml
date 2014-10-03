@@ -2,7 +2,7 @@
 <div id="login-form">
 <% form_tag({:action=> "login"}) do %>
 <%= back_url_hidden_field_tag %>
-<table>
+<table style="float: left">
 <tr>
     <td align="right"><label for="username"><%=l(:field_login)%>:</label></td>
     <td align="left"><%= text_field_tag 'username', nil, :tabindex => '2' %></td>
@@ -36,7 +36,13 @@
     </td>
 </tr>
 </table>
-<%= javascript_tag "Form.Element.focus('username');" %>
+<div style="float: right">
+  <a href="/auth/google_oauth2"><img width="200" src="https://developers.google.com/accounts/images/sign-in-with-google.png" alt="Sign-In with Google"></a>
+</div>
+      <%= javascript_tag "Form.Element.focus('username');" %>
+
+
 <% end %>
 </div>
 <%= call_hook :view_account_login_bottom %>
+

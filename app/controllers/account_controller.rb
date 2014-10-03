@@ -122,13 +122,29 @@ class AccountController < ApplicationController
   end
 
   def oauth_login
-    name = auth_hash.info.name.downcase
-    user = User.find_by_login(name)
+    email = auth_hash.info.email
+    user = User.find_by_mail(email)
+    if (user.nil?)
+      user = create_user_from_oauth_hash(auth_hash)
+    end
     successful_authentication(user)
+
   end
 
 
   private
+
+  # Creates a user account for the +email+ sender
+  def create_user_from_oauth_hash(oauth_hash)
+      user = User.new
+      user.mail = auth_hash.info.email
+      user.firstname = auth_hash.info.first_name
+      user.lastname = auth_hash.info.last_name
+      user.login = user.mail
+      user.password = ActiveSupport::SecureRandom.hex(5)
+      user.language = Setting.default_language
+      user.save ? user : nil
+  end
 
   def logout_user
     if User.current.logged?
