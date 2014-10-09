@@ -4,3 +4,6 @@
 [submodule "vendor/plugins/chiliproject_tipit_mailgun_handler"]
 	path = vendor/plugins/chiliproject_tipit_mailgun_handler
 	url = https://github.com/tipitnet/chiliproject_tipit_mailgun_handler_plugin.git
+[submodule "vendor/plugins/chiliproject_tipit_auth"]
+	path = vendor/plugins/chiliproject_tipit_auth
+	url = https://github.com/tipitnet/chiliproject_tipit_auth_plugin.git
