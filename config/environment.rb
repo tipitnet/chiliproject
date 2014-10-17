@@ -21,6 +21,9 @@
 # use RACK_ENV if we are running as a simple rack app
 ENV['RAILS_ENV'] ||= ENV['RACK_ENV'] if ENV['RACK_ENV']
 
+require 'dotenv'
+Dotenv.overload ".env"
+
 # this is replaced by config.encoding = "utf-8" in rails3
 if RUBY_VERSION >= '1.9'
   Encoding.default_external = 'UTF-8'
