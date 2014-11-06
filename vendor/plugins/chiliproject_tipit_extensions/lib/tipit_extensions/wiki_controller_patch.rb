@@ -99,7 +99,7 @@ module TipitExtensions
 
       def initial_page_content_with_tipit_patch(page)
         wiki_template = "h1. #{page.pretty_title} \n\r"
-        wiki_template += page.project.wiki_template
+        wiki_template += page.project.wiki_template unless page.project.wiki_template.nil?
         wiki_template
       end
 
