@@ -3,7 +3,17 @@
     <h3>Clockability</h3>
   <% if pending_items.size > 0 %>
         <%= error %>
-        <p><%= l(:label_pending_items)%> <%= link_to l(:label_sync_now), :controller => 'sync' %></p>
+        <p><%= l(:label_pending_items)%></p>
+        <ul>
+        <% pending_items.each do | item | %>
+
+             <li>
+               <%= link_to "Issue #{item.issue.id}", :controller => 'issues', :action => 'show', :id => item.issue.id %>
+             </li>
+
+        <% end %>
+        </ul>
+        <%= link_to l(:label_sync_now), :controller => 'sync' %>
   <% else %>
       <p><%= l(:label_no_pending_items)%></p>
   <% end %>
