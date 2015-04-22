@@ -9,7 +9,7 @@ module Clockability
       external_project_id = time_entry.project.identifier
       external_time_entry_id = time_entry.id
       log_date = (time_entry.spent_on.to_time.to_i) * 1000
-      notes = time_entry.comments
+      notes = time_entry.comments.gsub("\"","")
       worked_hours = TimeConversor.extract_hours(time_entry.hours)
       worked_minutes = TimeConversor.extract_minutes(time_entry.hours)
 
@@ -23,6 +23,7 @@ module Clockability
       data += '"WorkedHours":' +  worked_hours.to_s + ','
       data += '"WorkedMinutes":' + worked_minutes.to_s + '}'
       return data
+
     end
 
     def send_data(json_data, user_key)
